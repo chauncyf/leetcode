@@ -1,5 +1,9 @@
 # LeetCode
 
+## Top Amazon Questions
+- [1. Two Sum](https://github.com/chauncyf/LeetCode/blob/master/src/TwoSum.java)
+- [2. Add Two Numbers](https://github.com/chauncyf/LeetCode/blob/master/src/AddTwoNumbers.java)
+
 ## Two Pointer
 - [Two Sum](https://leetcode.com/problems/two-sum/)
 - [3Sum](https://leetcode.com/problems/3sum/)
