@@ -9,8 +9,8 @@ whatever it takes
 ### May 19
 :)
 ### May 20
-- [5. Longest Palindromic Substring](https://github.com/chauncyf/LeetCode/blob/master/Python/longest_palindromic_substring.py)
-- [3. Longest Substring Without Repeating Characters](https://github.com/chauncyf/LeetCode/blob/master/Python/longest_substring_without_repeating_characters.py)
+- [5. Longest Palindromic Substring*](https://github.com/chauncyf/LeetCode/blob/master/Python/longest_palindromic_substring.py)
+- [3. Longest Substring Without Repeating Characters*](https://github.com/chauncyf/LeetCode/blob/master/Python/longest_substring_without_repeating_characters.py)
 
 ## Tags
 ### Two Pointer
