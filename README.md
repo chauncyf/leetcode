@@ -1,4 +1,5 @@
 # LeetCode
+Whatever it takes
 
 ## Timeline
 ### May 18
@@ -6,9 +7,10 @@
 - [2. Add Two Numbers](https://github.com/chauncyf/LeetCode/blob/master/src/AddTwoNumbers.java)
 - [200. Number of Islands](https://github.com/chauncyf/LeetCode/blob/master/src/NumberofIslands.java)
 ### May 19
-：）
+:)
 ### May 20
 - [5. Longest Palindromic Substring](https://github.com/chauncyf/LeetCode/blob/master/Python/longest_palindromic_substring.py)
+
 
 ## Tags
 ### Two Pointer
