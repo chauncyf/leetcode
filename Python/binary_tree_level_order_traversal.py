@@ -27,14 +27,16 @@ return its level order traversal as:
 
 from collections import deque
 
+
 class Solution:
     def levelOrder(self, root: TreeNode) -> List[List[int]]:
-        if not root: return []
+        if not root:
+            return []
 
+        res = []
         cur = root
         q = deque()
         q.append(cur)
-        res = []
         while q:
             size = len(q)
             cur_level = []
