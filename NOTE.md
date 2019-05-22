@@ -16,6 +16,7 @@ Input: "cbbd"
 Output: "bb"
 ```
 ### Solution
+Since a palindrome mirrors around its center, and there are totally `2n - 1` such centers, we could expand around these centers to find the longest palindrome. `Time complexity: O(n^2)`  
 **Note**: use `//` in python for floor division.
 ```python
 class Solution:
