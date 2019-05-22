@@ -1,9 +1,8 @@
-# Note
 
-## String
+# String
 
-### 5. Longest Palindromic Substring
-#### Problem
+## 5. Longest Palindromic Substring
+### Problem
 ```text
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
@@ -16,7 +15,7 @@ Example 2:
 Input: "cbbd"
 Output: "bb"
 ```
-#### Solution
+### Solution
 Note: use ```//``` in python for floor division
 ```python
 class Solution:
@@ -37,8 +36,8 @@ class Solution:
         return r - l - 1
 ```
 
-### 3. Longest Substring Without Repeating Characters
-#### Problem
+## 3. Longest Substring Without Repeating Characters
+### Problem
 ```text
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -58,7 +57,7 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3. 
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 ```
-#### Solution
+### Solution
 Basic idea, use ```sliding window``` to slide through the whole string   
 Used a low pointer to log where current window starts, and use a map to log where each letters occurred in current window  
 
@@ -76,10 +75,10 @@ class Solution:
         return res
 ```
 
-## Tree
+# Tree
 
-### 235. Lowest Common Ancestor of a Binary Search Tree
-#### Problem
+## 235. Lowest Common Ancestor of a Binary Search Tree
+### Problem
 ```textmate
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
@@ -99,8 +98,8 @@ Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
 Output: 2
 Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 ```
-#### Solution
-Since it's a BST, we could easily use it's property to find a split point of the two nodes
+### Solution
+Since it's a BST, the LCA is the split point of the two nodes, we could easily find it using the BST's property
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
