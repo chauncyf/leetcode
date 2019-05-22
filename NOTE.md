@@ -16,7 +16,7 @@ Input: "cbbd"
 Output: "bb"
 ```
 ### Solution
-**Note**: use `//` in python for floor division
+**Note**: use `//` in python for floor division.
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -35,6 +35,7 @@ class Solution:
             r += 1
         return r - l - 1
 ```
+`TODO: DP, Manacher's Algorithm`
 
 ## 3. Longest Substring Without Repeating Characters
 ### Problem
@@ -58,11 +59,11 @@ Explanation: The answer is "wke", with the length of 3.
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 ```
 ### Solution
-Basic idea, use `sliding window` to slide through the whole string   
-Used a low pointer to log where current window starts, and use a map to log where each letters occurred in current window  
+Basic idea, use `sliding window` to slide through the whole string.   
+Used a low pointer to log where current window starts, and use a map to log where each letters occurred in current window.  
 
-**Caution**: when resetting the low pointer, we should take the max of `lo` and `dic[c] + 1`  
-E.g.`abcaab`, when the window slides to the last b, low pointer is at a with index of -2 and current window is `a`, but the former b with index of 1 is still in the hashmap. If we use `dic[c] + 1` at this point, the window will become `caab`
+**Caution**: when resetting the low pointer, we should take the max of `lo` and `dic[c] + 1`.  
+E.g.`abcaab`, when the window slides to the last b, low pointer is at a with index of -2 and current window is `a`, but the former b with index of 1 is still in the hashmap. If we use `dic[c] + 1` at this point, the window will become `caab` instead of `ab`.
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
@@ -124,3 +125,4 @@ class Solution:
                 return cur
         return None
 ```
+
