@@ -1,5 +1,5 @@
 # LeetCode
-見上げてごらん夜の星を
+[見上げてごらん夜の星を](https://www.youtube.com/watch?v=GwLKAOPHCbU)
 
 ## Timeline
 
