@@ -16,7 +16,7 @@ Input: "cbbd"
 Output: "bb"
 ```
 ### Solution
-Note: use `//` in python for floor division
+**Note**: use `//` in python for floor division
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
@@ -62,7 +62,7 @@ Basic idea, use `sliding window` to slide through the whole string
 Used a low pointer to log where current window starts, and use a map to log where each letters occurred in current window  
 
 **Caution**: when resetting the low pointer, we should take the max of `lo` and `dic[c] + 1`  
-E.g.`abcaab`, when the window slides to the last b, current window is `a`, but the former b at index of 1 is still in the hashmap
+E.g.`abcaab`, when the window slides to the last b, low pointer is at a with index of -2 and current window is `a`, but the former b with index of 1 is still in the hashmap. If we use `dic[c] + 1` at this point, the window will become `caab`
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
