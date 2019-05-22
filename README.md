@@ -16,7 +16,8 @@
 - [102. Binary Tree Level Order Traversal](https://github.com/chauncyf/LeetCode/blob/master/Python/binary_tree_level_order_traversal.py)
 - [199. Binary Tree Right Side View](https://github.com/chauncyf/LeetCode/blob/master/Python/binary_tree_right_side_view.py)
 - [235. Lowest Common Ancestor of a Binary Search Tree*](https://github.com/chauncyf/LeetCode/blob/master/Python/lowest_common_ancestor_of_a_binary_search_tree.py)
-- [617. Merge Two Binary Trees](https://github.com/chauncyf/LeetCode/blob/master/Python/merge_two_binary_trees.py)
+- [617. Merge Two Binary Trees*](https://github.com/chauncyf/LeetCode/blob/master/Python/merge_two_binary_trees.py)
+
 ## Tags
 
 ### Two Pointer
