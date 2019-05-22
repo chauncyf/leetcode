@@ -1,21 +1,20 @@
 """
-102. Binary Tree Level Order Traversal
+199. Binary Tree Right Side View
 
-Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
-For example:
-Given binary tree [3,9,20,null,null,15,7],
-    3
-   / \
-  9  20
-    /  \
-   15   7
-return its level order traversal as:
-[
-  [3],
-  [9,20],
-  [15,7]
-]
+Example:
+
+Input: [1,2,3,null,5,null,4]
+Output: [1, 3, 4]
+Explanation:
+
+   1            <---
+ /   \
+2     3         <---
+ \     \
+  5     4       <---
+
 """
 
 # Definition for a binary tree node.
@@ -28,7 +27,7 @@ return its level order traversal as:
 from collections import deque
 
 class Solution:
-    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+    def rightSideView(self, root: TreeNode) -> List[int]:
         if not root:
             return []
         res = []
@@ -37,13 +36,12 @@ class Solution:
         q.append(cur)
         while q:
             size = len(q)
-            cur_level = []
             for i in range(size):
                 cur = q.popleft()
-                cur_level.append(cur.val)
+                if i == size - 1:
+                    res.append(cur.val)
                 if cur.left:
                     q.append(cur.left)
                 if cur.right:
                     q.append(cur.right)
-            res.append(cur_level)
         return res
