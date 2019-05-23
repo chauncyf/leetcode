@@ -10,8 +10,8 @@
 ### May 19
 : )
 ### May 20
-- [5. Longest Palindromic Substring*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#5-longest-palindromic-substring)
 - [3. Longest Substring Without Repeating Characters*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#3-longest-substring-without-repeating-characters)
+- [5. Longest Palindromic Substring*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#5-longest-palindromic-substring)
 ### May 21
 - [102. Binary Tree Level Order Traversal](https://github.com/chauncyf/leetcode/blob/master/Python/binary_tree_level_order_traversal.py)
 - [199. Binary Tree Right Side View](https://github.com/chauncyf/leetcode/blob/master/Python/binary_tree_right_side_view.py)
@@ -23,5 +23,6 @@
 - [144. Binary Tree Preorder Traversal](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#144-binary-tree-preorder-traversal)
 - [145. Binary Tree Postorder Traversal](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#145-binary-tree-postorder-traversal)
 ### May 23
-- [9. Palindrome Number](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#9-palindrome-number)
-- [7. Reverse Integer](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#7-reverse-integer)
+- [7. Reverse Integer*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#7-reverse-integer)
+- [9. Palindrome Number*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#9-palindrome-number)
+- [15. 3Sum*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#15-3sum)

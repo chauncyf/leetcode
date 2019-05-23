@@ -29,6 +29,7 @@ public class ThreeSum {
         for (int i = 0; i < nums.length; i++) {
             if (i == 0 || nums[i] != nums[i - 1]) {
                 int lo = i + 1, hi = nums.length - 1;
+                // dont need to check the length of input array, if its length < 3, lo < hi will not stand
                 while (lo < hi) {
                     int sum = nums[i] + nums[lo] + nums[hi];
                     if (sum == 0) {
