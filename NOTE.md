@@ -119,7 +119,7 @@ class Solution {
 ```
 Another brilliant solution from discussion.  
 I'm not sure if it's a good solution, because the integer could overflow during calculation (even though it is the intention).   
-During calculation, the temp result is `result * 10 + tail`, but if it's smaller than `-2^31`or larger than `2^31 - 1`, it will overflow.
+During calculation, the temp result is `result * 10 + tail`, but if it's smaller than `-2^31`or larger than `2^31 - 1`, it will overflow and return a number that is not correct.
 ```java
 class Solution {
     public int reverse(int x) {
