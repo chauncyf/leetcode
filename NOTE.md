@@ -80,6 +80,51 @@ class Solution:
         return res
 ```
 
+## 9. Palindrome Number
+### Problem
+```text
+Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+
+Example 1:
+
+Input: 121
+Output: true
+Example 2:
+
+Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+Example 3:
+
+Input: 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+Follow up:
+
+Coud you solve it without converting the integer to a string?
+```
+### Solution
+My first thought, instead of convert it into string, it's to compare the first and last digit continuously.  
+The problem is, how could I know I've compared half of the digits?  
+Thanks to the official solution, they have a very similar approach by reverse the left half of the number, and when the right half is no longer larger than the right half, we know it is the end.
+```java
+class Solution {
+    public boolean isPalindrome(int x) {
+        // take care of edge cases        
+        if (x < 0 || x % 10 == 0 && x != 0) return false;
+        int left = x;
+        int right = 0;
+        // = only in case of x = 0
+        while (left >= right) {
+            right = right * 10 + left % 10;
+            left /= 10;
+            if (right == left || right / 10 == left) return true;
+        }
+        return false;
+    }
+}
+```
+
 # Tree
 
 ## 94. Binary Tree Inorder Traversal
