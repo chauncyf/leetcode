@@ -1,44 +1,6 @@
 
 # String
 
-## 5. Longest Palindromic Substring
-### Problem
-```text
-Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-
-Example 1:
-Input: "babad"
-Output: "bab"
-Note: "aba" is also a valid answer.
-
-Example 2:
-Input: "cbbd"
-Output: "bb"
-```
-### Solution
-Since a palindrome mirrors around its center, and there are totally `2n - 1` such centers, we could expand around these centers to find the longest palindrome. `Time complexity: O(n^2)`  
-
-**Note**: use `//` in python for floor division.
-```python
-class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        start, end = 0, 0
-        for i in range(len(s)):
-            cur_len = max(self.expand(s, i, i), self.expand(s, i, i + 1))
-            if cur_len > end - start:
-                start = i - (cur_len - 1) // 2  # trick here, remember to -1 since it could expand at center of two char
-                end = i + cur_len // 2
-        return s[start:end + 1]
-
-    def expand(self, s, left, right):
-        l, r = left, right
-        while l >= 0 and r < len(s) and s[l] == s[r]:
-            l -= 1
-            r += 1
-        return r - l - 1
-```
-`TODO: DP, Manacher's Algorithm`
-
 ## 3. Longest Substring Without Repeating Characters
 ### Problem
 ```text
@@ -79,6 +41,46 @@ class Solution:
             res = max(i - lo + 1, res)
         return res
 ```
+
+
+## 5. Longest Palindromic Substring
+### Problem
+```text
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+Example 1:
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+
+Example 2:
+Input: "cbbd"
+Output: "bb"
+```
+### Solution
+Since a palindrome mirrors around its center, and there are totally `2n - 1` such centers, we could expand around these centers to find the longest palindrome. `Time complexity: O(n^2)`  
+
+**Note**: use `//` in python for floor division.
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        start, end = 0, 0
+        for i in range(len(s)):
+            cur_len = max(self.expand(s, i, i), self.expand(s, i, i + 1))
+            if cur_len > end - start:
+                start = i - (cur_len - 1) // 2  # trick here, remember to -1 since it could expand at center of two char
+                end = i + cur_len // 2
+        return s[start:end + 1]
+
+    def expand(self, s, left, right):
+        l, r = left, right
+        while l >= 0 and r < len(s) and s[l] == s[r]:
+            l -= 1
+            r += 1
+        return r - l - 1
+```
+`TODO: DP, Manacher's Algorithm`
+
 
 ## 7. Reverse Integer
 ### Problem
@@ -136,6 +138,7 @@ class Solution {
 }
 ```
 
+
 ## 9. Palindrome Number
 ### Problem
 ```text
@@ -180,6 +183,7 @@ class Solution {
     }
 }
 ```
+
 
 # Tree
 
@@ -238,6 +242,7 @@ class Solution:
         return res
 ```
 
+
 ## 144. Binary Tree Preorder Traversal
 ### Problem
 ```text
@@ -293,6 +298,7 @@ class Solution:
         return res
 ```
 
+
 ## 145. Binary Tree Postorder Traversal
 ### Problem
 ```text
@@ -334,6 +340,7 @@ class Solution:
                     stack.append(cur.right)
         return res[::-1]  # wow, awesome :D
 ```
+
 
 ## 235. Lowest Common Ancestor of a Binary Search Tree
 ### Problem
@@ -380,6 +387,7 @@ class Solution:
                 return cur
         return None
 ```
+
 
 ## 236. Lowest Common Ancestor of a Binary Tree
 ### Problem
