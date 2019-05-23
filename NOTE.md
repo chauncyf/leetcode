@@ -82,9 +82,64 @@ class Solution:
 
 # Tree
 
+## 94. Binary Tree Inorder Traversal
+### Problem
+```text
+Given a binary tree, return the inorder traversal of its nodes' values.
+
+Example:
+
+Input: [1,null,2,3]
+   1
+    \
+     2
+    /
+   3
+
+Output: [1,3,2]
+
+Follow up: Recursive solution is trivial, could you do it iteratively?
+```
+### Solution
+First start with the recursive approach.
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        def trav(node, res):
+            if node:
+                trav(node.left, res)
+                res.append(node.val)
+                trav(node.right, res)
+        res = []
+        trav(root, res)
+        return res
+```
+Since recursive solution is trivial :), let's do it iteratively!
+```python
+class Solution:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
+        res, stack = [], []
+        cur = root
+        while cur or stack:
+            while cur:
+                stack.append(cur)
+                cur = cur.left
+            cur = stack.pop()
+            res.append(cur.val)
+            cur = cur.right
+        return res
+```
+
 ## 235. Lowest Common Ancestor of a Binary Search Tree
 ### Problem
-```textmate
+```text
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
 According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
@@ -104,7 +159,7 @@ Output: 2
 Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 ```
 ### Solution
-Since it's a BST, the LCA is the split point of the two nodes, we could easily find it using the BST's property
+Since it's a BST, the LCA is the split point of the two nodes, we could easily find it with this property. 
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
