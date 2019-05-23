@@ -19,3 +19,4 @@
 - [617. Merge Two Binary Trees*](https://github.com/chauncyf/leetcode/blob/master/Python/merge_two_binary_trees.py)
 ### May 22
 - [236. Lowest Common Ancestor of a Binary Tree*](https://github.com/chauncyf/leetcode/blob/master/Python/lowest_common_ancestor_of_a_binary_tree.py)
+- [94. Binary Tree Inorder Traversal](https://github.com/chauncyf/leetcode/blob/master/Python/binary_tree_inorder_traversal.py)
