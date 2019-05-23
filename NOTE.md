@@ -125,7 +125,7 @@ Since recursive solution is trivial :), let's do it iteratively!
 ```python
 class Solution:
     def inorderTraversal(self, root: TreeNode) -> List[int]:
-        res, stack = [], []
+        stack, res = [], []
         cur = root
         while cur or stack:
             while cur:
@@ -134,6 +134,61 @@ class Solution:
             cur = stack.pop()
             res.append(cur.val)
             cur = cur.right
+        return res
+```
+
+## 144. Binary Tree Preorder Traversal
+### Problem
+```text
+Given a binary tree, return the preorder traversal of its nodes' values.
+
+Example:
+
+Input: [1,null,2,3]
+   1
+    \
+     2
+    /
+   3
+
+Output: [1,2,3]
+
+Follow up: Recursive solution is trivial, could you do it iteratively?
+```
+### Solution
+Again, start with the trivial recursive approach.
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        def trav(node, res):
+            if node:
+                res.append(node.val)
+                trav(node.left, res)
+                trav(node.right, res)
+        res = []
+        trav(root, res)
+        return res
+```
+Then the iterative approach.
+```python
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        stack, res = [root], []
+        while stack:
+            cur = stack.pop()
+            if cur:
+                res.append(cur.val)
+                if cur.right:
+                    stack.append(cur.right)
+                if cur.left:
+                    stack.append(cur.left)
         return res
 ```
 
@@ -212,7 +267,8 @@ p and q are different and both values will exist in the binary tree.
 Without the property of BST, we cannot easily find the LCA by a split point.  
 The idea here is to use a map to point each nodes to their parent nodes.   
 1. Iterate down through the root node until p and q was found, then we have all the ancestor nodes of p & q.   
-2. Add all ancestors of p into a set, and finally iterate up through ancestors of q. Once a ancestor of q is found in the set, it is the LCA.
+2. Add all ancestors of p into a set, and finally iterate up through ancestors of q.  
+Once a ancestor of q was found in the set, it is the LCA.
 ```python
 # Definition for a binary tree node.
 # class TreeNode:

@@ -1,7 +1,7 @@
 """
-94. Binary Tree Inorder Traversal
+144. Binary Tree Preorder Traversal
 
-Given a binary tree, return the inorder traversal of its nodes' values.
+Given a binary tree, return the preorder traversal of its nodes' values.
 
 Example:
 
@@ -12,7 +12,7 @@ Input: [1,null,2,3]
     /
    3
 
-Output: [1,3,2]
+Output: [1,2,3]
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 """
@@ -26,25 +26,25 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 #         self.right = None
 
 class Solution:
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
         def trav(node, res):
             if node:
-                trav(node.left, res)
                 res.append(node.val)
+                trav(node.left, res)
                 trav(node.right, res)
 
         res = []
         trav(root, res)
         return res
 
-    def inorderTraversal(self, root: TreeNode) -> List[int]:
-        stack, res = [], []
-        cur = root
-        while cur or stack:
-            while cur:
-                stack.append(cur)
-                cur = cur.left
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        stack, res = [root], []
+        while stack:
             cur = stack.pop()
-            res.append(cur.val)
-            cur = cur.right
+            if cur:
+                res.append(cur.val)
+                if cur.right:
+                    stack.append(cur.right)
+                if cur.left:
+                    stack.append(cur.left)
         return res
