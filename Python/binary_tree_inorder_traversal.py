@@ -32,7 +32,6 @@ class Solution:
                 trav(node.left, res)
                 res.append(node.val)
                 trav(node.right, res)
-
         res = []
         trav(root, res)
         return res
