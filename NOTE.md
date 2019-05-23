@@ -17,6 +17,7 @@ Output: "bb"
 ```
 ### Solution
 Since a palindrome mirrors around its center, and there are totally `2n - 1` such centers, we could expand around these centers to find the longest palindrome. `Time complexity: O(n^2)`  
+
 **Note**: use `//` in python for floor division.
 ```python
 class Solution:
@@ -61,7 +62,7 @@ Explanation: The answer is "wke", with the length of 3.
 ```
 ### Solution
 Basic idea, use `sliding window` to slide through the whole string.   
-Used a low pointer to log where current window starts, and use a map to log where each letters occurred in current window.  
+Used a low pointer to log where current window starts, and use a map to log where each letters appeared fot the last time.  
 
 **Caution**: when resetting the low pointer, we should take the max of `lo` and `dic[c] + 1`.  
 E.g.`abcaab`, when the window slides to the last b, low pointer is at a with index of -2 and current window is `a`, but the former b with index of 1 is still in the hashmap. If we use `dic[c] + 1` at this point, the window will become `caab` instead of `ab`.
@@ -127,3 +128,66 @@ class Solution:
         return None
 ```
 
+## 236. Lowest Common Ancestor of a Binary Tree
+### Problem
+```text
+Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
+
+Given the following binary tree:  root = [3,5,1,6,2,0,8,null,null,7,4]
+```
+![tree_image](https://assets.leetcode.com/uploads/2018/12/14/binarytree.png)
+```text
+Example 1:
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+Output: 3
+Explanation: The LCA of nodes 5 and 1 is 3.
+
+Example 2:
+Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+Output: 5
+Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
+ 
+Note:
+All of the nodes' values will be unique.
+p and q are different and both values will exist in the binary tree.
+```
+### Solution
+Without the property of BST, we cannot easily find the LCA by a split point.  
+The idea here is to use a map to point each nodes to their parent nodes.   
+1. Iterate down through the root node until p and q was found, then we have all the ancestor nodes of p & q.   
+2. Add all ancestors of p into a set, and finally iterate up through ancestors of q. Once a ancestor of q is found in the set, it is the LCA.
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        parent = {root: None}
+        stack = [root]
+        # use a stack to traversal the tree and store parent nodes of each nodes in the parent dict
+        while stack and (p not in parent or q not in parent):
+            cur = stack.pop()
+            if cur.right:
+                parent[cur.right] = cur
+                stack.append(cur.right)
+            if cur.left:
+                parent[cur.left] = cur
+                stack.append(cur.left)
+        ancestor = set()
+        # add all ancestors of p into the ancestor set
+        while p:
+            ancestor.add(p)
+            p = parent[p]
+        # iterate through ancestors of q
+        while q:
+            if q in ancestor:
+                return q
+            q = parent[q]
+        return None
+```
