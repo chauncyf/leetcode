@@ -21,3 +21,4 @@
 - [236. Lowest Common Ancestor of a Binary Tree*](https://github.com/chauncyf/leetcode/blob/master/Python/lowest_common_ancestor_of_a_binary_tree.py)
 - [94. Binary Tree Inorder Traversal](https://github.com/chauncyf/leetcode/blob/master/Python/binary_tree_inorder_traversal.py)
 - [144. Binary Tree Preorder Traversal](https://github.com/chauncyf/leetcode/blob/master/Python/binary_tree_preorder_traversal.py)
+- [145. Binary Tree Postorder Traversal](https://github.com/chauncyf/leetcode/blob/master/Python/binary_tree_postorder_traversal.py)
