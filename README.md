@@ -24,3 +24,4 @@
 - [145. Binary Tree Postorder Traversal](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#145-binary-tree-postorder-traversal)
 ### May 23
 - [9. Palindrome Number](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#9-palindrome-number)
+- [7. Reverse Integer](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#7-reverse-integer)

@@ -80,6 +80,62 @@ class Solution:
         return res
 ```
 
+## 7. Reverse Integer
+### Problem
+```text
+Given a 32-bit signed integer, reverse digits of an integer.
+
+Example 1:
+Input: 123
+Output: 321
+
+Example 2:
+Input: -123
+Output: -321
+
+Example 3:
+Input: 120
+Output: 21
+
+Note:
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+```
+### Solution
+The most challenge part in this problem is not letting the result overflow, so the result has to be checked each time during calculation.
+```java
+class Solution {
+    public int reverse(int x) {
+        int result = 0;
+        while (x != 0) {
+            int tail = x % 10;
+            x /= 10;
+            if (result > Integer.MAX_VALUE / 10 || result == Integer.MAX_VALUE / 10 && tail > 7) return 0;
+            if (result < Integer.MIN_VALUE / 10 || result == Integer.MIN_VALUE / 10 && tail < -8) return 0;
+            result = result * 10 + tail;
+        }
+        return result;
+    }
+}
+```
+Another brilliant solution from discussion.  
+I'm not sure if it's a good solution, because the integer could overflow during calculation (even though it is the intention).   
+During calculation, the temp result is `result * 10 + tail`, but if it's smaller than `-2^31`or larger than `2^31 - 1`, it will overflow.
+```java
+class Solution {
+    public int reverse(int x) {
+        int result = 0;
+        while (x != 0) {
+            int tail = x % 10;
+            // overflow here, brilliant here
+            if (((result * 10 + tail) - tail) / 10 != result) return 0;
+            result = result * 10 + tail;
+            x /= 10;
+        }
+        return result;
+    }
+}
+```
+
 ## 9. Palindrome Number
 ### Problem
 ```text
