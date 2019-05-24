@@ -309,12 +309,22 @@ Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 ```
 ### Solution
-Main idea, use a max-heap to keep the first k largest element. Time complexity: `O(nlogk)`
+Naive approach, simply sort the array. Time complexity: `O(nlogn)`
 ```java
 class Solution {
     public int findKthLargest(int[] nums, int k) {
+        Arrays.sort(nums);
+        return nums[nums.length - k];
+    }
+}
+```
+Priority queue approach, use a max-heap to keep the first k largest element. Time complexity: `O(nlogk)`
+```java
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+        // min-heap comparator: ((n1, n2) -> n2 - n1) or Collections.reverseOrder() 
         PriorityQueue<Integer> heap = new PriorityQueue<>((n1, n2) -> n1 - n2);
-        for (int i: nums) {
+        for (int i : nums) {
             heap.add(i);
             if (heap.size() > k) {
                 heap.poll();
@@ -330,7 +340,6 @@ class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         return heapq.nlargest(k, nums)[-1]
 ```
-
 `TODO: Quickselect`
 
 
