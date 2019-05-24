@@ -185,6 +185,59 @@ class Solution {
 ```
 
 
+## 20. Valid Parentheses
+### Problem
+```text
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+    1. Open brackets must be closed by the same type of brackets.
+    2. Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
+
+Example 1:
+Input: "()"
+Output: true
+
+Example 2:
+Input: "()[]{}"
+Output: true
+
+Example 3:
+Input: "(]"
+Output: false
+
+Example 4:
+Input: "([)]"
+Output: false
+
+Example 5:
+Input: "{[]}"
+Output: true
+```
+### Solution
+```java
+public class Solution {
+    public boolean isValid(String s) {
+        Map<Character, Character> map = new HashMap<>();
+        map.put('(', ')');
+        map.put('{', '}');
+        map.put('[', ']');
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char cur = s.charAt(i);
+            if (map.containsKey(cur)) {
+                stack.push(cur);
+            } else if (stack.isEmpty() || map.get(stack.pop()) != cur) { 
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+```
+
+
 # Array
 
 ## 15. 3Sum
@@ -206,7 +259,7 @@ A solution set is:
 ```
 ### Solution
 A very classical problem.  
-Basic idea is to sort the array and using `two pointer` to find complementary two sum.  
+Basic idea is to sort the array and using `two pointer` to find the complementary two sum.  
 ```java
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
@@ -221,14 +274,14 @@ public class Solution {
                     if (sum == 0) {
                         // hey!
                         res.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
-                        while (lo < hi && nums[lo]  == nums[lo + 1]) lo++;
+                        while (lo < hi && nums[lo] == nums[lo + 1]) lo++;
                         while (lo < hi && nums[hi] == nums[hi - 1]) hi--;
-                        hi--;
                         lo++;
-                    } else if (sum > 0) {
                         hi--;
+                    } else if (sum < 0) {
+                        lo++;
                     } else {
-                        lo++;
+                        hi--;
                     }
                 }
             }

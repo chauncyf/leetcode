@@ -33,15 +33,16 @@ public class ThreeSum {
                 while (lo < hi) {
                     int sum = nums[i] + nums[lo] + nums[hi];
                     if (sum == 0) {
+                        // hey!
                         res.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
-                        while (lo < hi && nums[lo]  == nums[lo + 1]) lo++;
+                        while (lo < hi && nums[lo] == nums[lo + 1]) lo++;
                         while (lo < hi && nums[hi] == nums[hi - 1]) hi--;
-                        hi--;
                         lo++;
-                    } else if (sum > 0) {
                         hi--;
+                    } else if (sum < 0) {
+                        lo++;
                     } else {
-                        lo++;
+                        hi--;
                     }
                 }
             }
