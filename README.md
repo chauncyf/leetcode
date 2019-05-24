@@ -1,8 +1,9 @@
 # Fall 2019
 [見上げてごらん夜の星を](https://www.youtube.com/watch?v=GwLKAOPHCbU)
 
-## Timeline
+[Cry for the Moon]: # (https://www.youtube.com/watch?v=b0Lul4ucP4M)
 
+## Timeline
 ### May 18
 - [1. Two Sum](https://github.com/chauncyf/leetcode/blob/master/Java/TwoSum.java)
 - [2. Add Two Numbers](https://github.com/chauncyf/leetcode/blob/master/Java/AddTwoNumbers.java)
@@ -28,3 +29,5 @@
 - [15. 3Sum*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#15-3sum)
 - [20. Valid Parentheses](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#20-valid-parentheses)
 - [215. Kth Largest Element in an Array*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#215-kth-largest-element-in-an-array)
+### May 24
+- [973. K Closest Points to Origin]()

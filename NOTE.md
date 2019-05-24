@@ -319,7 +319,6 @@ class Solution {
 }
 ```
 Priority queue approach, use a max-heap to keep the first k largest element. Time complexity: `O(nlogk)`
-
 **Note**: min-heap comparator: `(n1, n2) -> n2 - n1` or `Collections.reverseOrder()` 
 ```java
 class Solution {
