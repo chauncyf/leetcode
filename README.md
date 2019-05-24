@@ -27,4 +27,4 @@
 - [9. Palindrome Number*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#9-palindrome-number)
 - [15. 3Sum*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#15-3sum)
 - [20. Valid Parentheses](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#20-valid-parentheses)
-- [215. Kth Largest Element in an Array](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#215-kth-largest-element-in-an-array)
+- [215. Kth Largest Element in an Array*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#215-kth-largest-element-in-an-array)

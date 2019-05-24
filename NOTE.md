@@ -319,10 +319,11 @@ class Solution {
 }
 ```
 Priority queue approach, use a max-heap to keep the first k largest element. Time complexity: `O(nlogk)`
+
+**Note**: min-heap comparator: `(n1, n2) -> n2 - n1` or `Collections.reverseOrder()` 
 ```java
 class Solution {
     public int findKthLargest(int[] nums, int k) {
-        // min-heap comparator: ((n1, n2) -> n2 - n1) or Collections.reverseOrder() 
         PriorityQueue<Integer> heap = new PriorityQueue<>((n1, n2) -> n1 - n2);
         for (int i : nums) {
             heap.add(i);
