@@ -398,11 +398,13 @@ class Solution {
             }
         }
         // 辣鸡java 这个arraylist转int[][]写的我想砸电脑
-        int res[][] = new int[points.length][2];  // 这样写是答案是不对的，会多出好多[0, 0]
+        // int res[][] = new int[points.length][2];  // 这样写是答案是不对的，会多出好多[0, 0]
+        // 哦我以为相同距离是不算的，大半夜脑子不清醒了，那直接初始化长度k就行了
+        int res[][] = new int[K][2];
         int index = 0;
         while (!pq.isEmpty()) {
             List<int[]> list = map.get(pq.poll());
-            for (int i = 0; i < list.size(); i++) {
+            for (int i = 0; index < K && i < list.size(); i++) {
                 res[index] = list.get(i);
             }
             index++;
@@ -430,9 +432,36 @@ class Solution:
             for j in map[i]:
                 if len(res) < K:
                     res.append(j)
+                else:
+                    return res
         return res
 ```
+接下来的是java的sort的写法的非常的dry的code
+```java
+class Solution {
+    public int[][] kClosest(int[][] points, int K) {
+        int[] dists = new int[points.length];
 
+        for (int i = 0; i < points.length; i++) {
+            int[] point = points[i];
+            dists[i] = point[0] * point[0] + point[1] * point[1];
+        }
+
+        Arrays.sort(dists);
+        int kthDist = dists[K - 1];
+        int x = 0;
+        int[][] res = new int[K][2];
+
+        for (int i = 0; i < points.length; i++) {
+            int[] point = points[i];
+            if (point[0] * point[0] + point[1] * point[1] <= kthDist) {
+                res[x++] = point;
+            }
+        }
+        return res;
+    }
+}
+```
 
 # Tree
 
