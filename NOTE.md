@@ -445,6 +445,7 @@ class Solution:
 class Solution {
     public int[][] kClosest(int[][] points, int K) {
         PriorityQueue<Integer> pq = new PriorityQueue<>((n1, n2) -> n2 - n1);
+        
         for (int[] point : points) {
             int dist = point[0] * point[0] + point[1] * point[1];
             pq.add(dist);
@@ -452,14 +453,15 @@ class Solution {
                 pq.poll();
             }
         }
+        
         int kthDist = pq.poll();
-        int[][] res = new int[K][2];
+        int[][] res = new int[K][2];    
         int x = 0;
+        
         for (int i = 0; i < points.length; i++) {
             int[] point = points[i];
-            int dist = point[0] * point[0] + point[1] * point[1];
-            if (dist <= kthDist) {
-                res[x++] = points[i];
+            if (point[0] * point[0] + point[1] * point[1] <= kthDist) {
+                res[x++] = point;
             }
         }
         return res;
@@ -479,8 +481,8 @@ class Solution {
 
         Arrays.sort(dists);
         int kthDist = dists[K - 1];
-        int x = 0;
         int[][] res = new int[K][2];
+        int x = 0;
 
         for (int i = 0; i < points.length; i++) {
             int[] point = points[i];
@@ -492,6 +494,8 @@ class Solution {
     }
 }
 ```
+然而lc里跑起来sort的解法比pq快？而且还快不少：）
+
 答案里还有divid and conquer的O(n)的解法  
 见鬼去吧，明天再说
 `TODO Divide and Conquer`

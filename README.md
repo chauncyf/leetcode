@@ -30,4 +30,4 @@
 - [20. Valid Parentheses](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#20-valid-parentheses)
 - [215. Kth Largest Element in an Array*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#215-kth-largest-element-in-an-array)
 ### May 24
-- [973. K Closest Points to Origin](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#973-k-closest-points-to-origin)
+- [973. K Closest Points to Origin*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#973-k-closest-points-to-origin)
