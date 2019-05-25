@@ -496,8 +496,16 @@ class Solution {
 ```
 然而lc里跑起来sort的解法比pq快？而且还快不少：）
 
-答案里还有divid and conquer的O(n)的解法  
-见鬼去吧，明天再说
+damn, 看了一眼讨论，还能这么干的吗..  
+java对不起
+```java
+class Solution {
+    public int[][] kClosest(int[][] points, int K) {
+        Arrays.sort(points, (p1, p2) -> p1[0] * p1[0] + p1[1] * p1[1] - p2[0] * p2[0] - p2[1] * p2[1]);
+        return Arrays.copyOfRange(points, 0, K);
+    }
+}
+```
 `TODO Divide and Conquer`
 
 # Tree
