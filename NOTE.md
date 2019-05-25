@@ -342,6 +342,97 @@ class Solution:
 ```
 `TODO: Quickselect`
 
+## 973. K Closest Points to Origin
+### Problem
+```text
+We have a list of points on the plane.  Find the K closest points to the origin (0, 0).
+
+(Here, the distance between two points on a plane is the Euclidean distance.)
+
+You may return the answer in any order.  The answer is guaranteed to be unique (except for the order that it is in.)
+
+Example 1:
+Input: points = [[1,3],[-2,2]], K = 1
+Output: [[-2,2]]
+Explanation: 
+The distance between (1, 3) and the origin is sqrt(10).
+The distance between (-2, 2) and the origin is sqrt(8).
+Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
+We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
+
+Example 2:
+Input: points = [[3,3],[5,-1],[-2,4]], K = 2
+Output: [[3,3],[-2,4]]
+(The answer [[-2,4],[3,3]] would also be accepted.)
+ 
+
+Note:
+1 <= K <= points.length <= 10000
+-10000 < points[i][0] < 10000
+-10000 < points[i][1] < 10000
+```
+### Solution
+这个题真的写的要被java气死了  
+arraylist里存int[]都研究好半天，List<Integer[]>还不行，只能写List<int[]>  
+这就算了，总算是存进去了，以为就这样结束了  
+结果List<int[]> 转成int[][]又出现了问题: )  
+行，建个array一个个读了再存进去行吧  
+结果这个k closest和上面那个kth还不一样，这个是前k个  
+那现在array初始化又有问题  
+太气了，这题还是用python写了
+```java
+class Solution {
+    public int[][] kClosest(int[][] points, int K) {
+        Map<Integer, List<int[]>> map = new HashMap<>();
+        for (int[] point : points) {
+            int dist = point[0] * point[0] + point[1] * point[1];
+            List<int[]> tmp = map.getOrDefault(dist, new ArrayList<int[]>());
+            tmp.add(point);
+            map.put(dist, tmp);
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>((n1, n2) -> n2 - n1);
+        for (int i : map.keySet()) {
+            pq.add(i);
+            if (pq.size() > K) {
+                pq.poll();
+            }
+        }
+        // 辣鸡java 这个arraylist转int[][]写的我想砸电脑
+        int res[][] = new int[points.length][2];  // 这样写是答案是不对的，会多出好多[0, 0]
+        int index = 0;
+        while (!pq.isEmpty()) {
+            List<int[]> list = map.get(pq.poll());
+            for (int i = 0; i < list.size(); i++) {
+                res[index] = list.get(i);
+            }
+            index++;
+        }
+        return res;
+    }
+}
+```
+python用这个思路写不要再简单  
+不过写到这里也发现按照上面kth那题的思路写确实有问题  
+用map存的话取前k个只能粗暴的根据res的长度来判断要不要继续往res里加  
+这样的话多了这么多麻烦确实还不如答案里的直接sort，复杂度也就是nlogn比上nlogk，省好多事呢
+```python
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        map = {}
+        for point in points:
+            dist = point[0]**2 + point[1]**2
+            tmp = map.get(dist, [])
+            tmp.append(point)
+            map[dist] = tmp
+        res = []
+        for i in heapq.nsmallest(K, list(map.keys())):
+            # python没有flatten也有点难受
+            for j in map[i]:
+                if len(res) < K:
+                    res.append(j)
+        return res
+```
+
 
 # Tree
 
