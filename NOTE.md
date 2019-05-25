@@ -436,6 +436,36 @@ class Solution:
                     return res
         return res
 ```
+最后发现这个题做这么难受是题目的理解有问题  
+最开始以为k closest是第k个，结果是前k个  
+前k个的话就导致一个很严重的问题，我是按照第k个来想的，所以才用了hashmap存了所有点的距离  
+如果是前k个的话，那pq在这里的作用就和上面kth的完全一样了，最后得到第k个点的距离就行  
+下面是正确理解题意后的pq解法
+```java
+class Solution {
+    public int[][] kClosest(int[][] points, int K) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>((n1, n2) -> n2 - n1);
+        for (int[] point : points) {
+            int dist = point[0] * point[0] + point[1] * point[1];
+            pq.add(dist);
+            if (pq.size() > K) {
+                pq.poll();
+            }
+        }
+        int kthDist = pq.poll();
+        int[][] res = new int[K][2];
+        int x = 0;
+        for (int i = 0; i < points.length; i++) {
+            int[] point = points[i];
+            int dist = point[0] * point[0] + point[1] * point[1];
+            if (dist <= kthDist) {
+                res[x++] = points[i];
+            }
+        }
+        return res;
+    }
+}
+```
 接下来的是java的sort的写法的非常的dry的code
 ```java
 class Solution {
@@ -462,6 +492,9 @@ class Solution {
     }
 }
 ```
+答案里还有divid and conquer的O(n)的解法  
+见鬼去吧，明天再说
+`TODO Divide and Conquer`
 
 # Tree
 
