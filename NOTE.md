@@ -1,8 +1,8 @@
 
-# String
+## String
 
-## 3. Longest Substring Without Repeating Characters
-### Problem
+### 3. Longest Substring Without Repeating Characters
+#### Problem
 ```text
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -22,7 +22,7 @@ Output: 3
 Explanation: The answer is "wke", with the length of 3. 
              Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 ```
-### Solution
+#### Solution
 Basic idea, use `sliding window` to slide through the whole string.   
 Used a low pointer to log where current window starts, and use a map to log where each letters appeared fot the last time.  
 
@@ -43,8 +43,8 @@ class Solution:
 ```
 
 
-## 5. Longest Palindromic Substring
-### Problem
+### 5. Longest Palindromic Substring
+#### Problem
 ```text
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
@@ -57,7 +57,7 @@ Example 2:
 Input: "cbbd"
 Output: "bb"
 ```
-### Solution
+#### Solution
 Since a palindrome mirrors around its center, and there are totally `2n - 1` such centers, we could expand around these centers to find the longest palindrome. `Time complexity: O(n^2)`  
 
 **Note**: use `//` in python for floor division.
@@ -82,8 +82,8 @@ class Solution:
 `TODO: DP, Manacher's Algorithm`
 
 
-## 7. Reverse Integer
-### Problem
+### 7. Reverse Integer
+#### Problem
 ```text
 Given a 32-bit signed integer, reverse digits of an integer.
 
@@ -102,7 +102,7 @@ Output: 21
 Note:
 Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 ```
-### Solution
+#### Solution
 The most challenge part in this problem is not letting the result overflow, so the result has to be checked each time during calculation.
 ```java
 class Solution {
@@ -139,8 +139,8 @@ class Solution {
 ```
 
 
-## 9. Palindrome Number
-### Problem
+### 9. Palindrome Number
+#### Problem
 ```text
 Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 
@@ -162,7 +162,7 @@ Follow up:
 
 Coud you solve it without converting the integer to a string?
 ```
-### Solution
+#### Solution
 My first thought, instead of convert it into string, it's to compare the first and last digit continuously.  
 The problem is, how could I know I've compared half of the digits?  
 Thanks to the official solution, they have a very similar approach by reverse the left half of the number, and when the right half is no longer larger than the right half, we know it is the end.
@@ -185,8 +185,8 @@ class Solution {
 ```
 
 
-## 20. Valid Parentheses
-### Problem
+### 20. Valid Parentheses
+#### Problem
 ```text
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
@@ -215,7 +215,7 @@ Example 5:
 Input: "{[]}"
 Output: true
 ```
-### Solution
+#### Solution
 ```java
 public class Solution {
     public boolean isValid(String s) {
@@ -238,10 +238,10 @@ public class Solution {
 ```
 
 
-# Array
+## Array
 
-## 15. 3Sum
-### Problem
+### 15. 3Sum
+#### Problem
 ```text
 Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
 
@@ -257,7 +257,7 @@ A solution set is:
   [-1, -1, 2]
 ]
 ```
-### Solution
+#### Solution
 A very classical problem.  
 Basic idea is to sort the array and using `two pointer` to find the complementary two sum.  
 ```java
@@ -292,8 +292,8 @@ public class Solution {
 ```
 
 
-## 215. Kth Largest Element in an Array
-### Problem
+### 215. Kth Largest Element in an Array
+#### Problem
 ```text
 Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 
@@ -308,7 +308,7 @@ Output: 4
 Note: 
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 ```
-### Solution
+#### Solution
 Naive approach, simply sort the array. Time complexity: `O(nlogn)`
 ```java
 class Solution {
@@ -318,7 +318,7 @@ class Solution {
     }
 }
 ```
-Priority queue approach, use a max-heap to keep the first k largest element. Time complexity: `O(nlogk)`
+Priority queue approach, use a max-heap to keep the first k largest element. Time complexity: `O(nlogk)`  
 **Note**: min-heap comparator: `(n1, n2) -> n2 - n1` or `Collections.reverseOrder()` 
 ```java
 class Solution {
@@ -342,8 +342,8 @@ class Solution:
 ```
 `TODO: Quickselect`
 
-## 973. K Closest Points to Origin
-### Problem
+### 973. K Closest Points to Origin
+#### Problem
 ```text
 We have a list of points on the plane.  Find the K closest points to the origin (0, 0).
 
@@ -371,7 +371,7 @@ Note:
 -10000 < points[i][0] < 10000
 -10000 < points[i][1] < 10000
 ```
-### Solution
+#### Solution
 这个题真的写的要被java气死了  
 arraylist里存int[]都研究好半天，List<Integer[]>还不行，只能写List<int[]>  
 这就算了，总算是存进去了，以为就这样结束了  
@@ -496,8 +496,7 @@ class Solution {
 ```
 然而lc里跑起来sort的解法比pq快？而且还快不少：）
 
-damn, 看了一眼讨论，还能这么干的吗..  
-java对不起
+damn..看了一眼讨论区，还能这么干的吗..  
 ```java
 class Solution {
     public int[][] kClosest(int[][] points, int K) {
@@ -506,12 +505,56 @@ class Solution {
     }
 }
 ```
-`TODO Divide and Conquer`
+java对不起
 
-# Tree
+**quick select**
+```text
+The last solution is based on quick sort, we can also call it quick select. In the quick sort, we will always choose a pivot to compare with other elements. After one iteration, we will get an array that all elements smaller than the pivot are on the left side of the pivot and all elements greater than the pivot are on the right side of the pviot (assuming we sort the array in ascending order). So, inspired from this, each iteration, we choose a pivot and then find the position p the pivot should be. Then we compare p with the K, if the p is smaller than the K, meaning the all element on the left of the pivot are all proper candidates but it is not adequate, we have to do the same thing on right side, and vice versa. If the p is exactly equal to the K, meaning that we've found the K-th position. Therefore, we just return the first K elements, since they are not greater than the pivot.
 
-## 94. Binary Tree Inorder Traversal
-### Problem
+Theoretically, the average time complexity is O(N) , but just like quick sort, in the worst case, this solution would be degenerated to O(N^2), and pratically, the real time it takes on leetcode is 15ms.
+
+The advantage of this solution is it is very efficient.
+The disadvatage of this solution are it is neither an online solution nor a stable one. And the K elements closest are not sorted in ascending order.
+```
+The short code shows as follows:
+```java
+class solution {
+    public int[][] kClosest(int[][] points, int K) {
+        int len =  points.length, l = 0, r = len - 1;
+        while (l <= r) {
+            int mid = helper(points, l, r);
+            if (mid == K) break;
+            if (mid < K) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return Arrays.copyOfRange(points, 0, K);
+    }
+    
+    private int helper(int[][] A, int l, int r) {
+        int[] pivot = A[l];
+        while (l < r) {
+            while (l < r && compare(A[r], pivot) >= 0) r--;
+            A[l] = A[r];
+            while (l < r && compare(A[l], pivot) <= 0) l++;
+            A[r] = A[l];
+        }
+        A[l] = pivot;
+        return l;
+    }
+    
+    private int compare(int[] p1, int[] p2) {
+        return p1[0] * p1[0] + p1[1] * p1[1] - p2[0] * p2[0] - p2[1] * p2[1];
+    }
+}
+```
+
+## Tree
+
+### 94. Binary Tree Inorder Traversal
+#### Problem
 ```text
 Given a binary tree, return the inorder traversal of its nodes' values.
 
@@ -528,7 +571,7 @@ Output: [1,3,2]
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 ```
-### Solution
+#### Solution
 First start with the recursive approach.
 ```python
 # Definition for a binary tree node.
@@ -566,8 +609,8 @@ class Solution:
 ```
 
 
-## 144. Binary Tree Preorder Traversal
-### Problem
+### 144. Binary Tree Preorder Traversal
+#### Problem
 ```text
 Given a binary tree, return the preorder traversal of its nodes' values.
 
@@ -584,7 +627,7 @@ Output: [1,2,3]
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 ```
-### Solution
+#### Solution
 Again, start with the trivial recursive approach.
 ```python
 # Definition for a binary tree node.
@@ -622,8 +665,8 @@ class Solution:
 ```
 
 
-## 145. Binary Tree Postorder Traversal
-### Problem
+### 145. Binary Tree Postorder Traversal
+#### Problem
 ```text
 Given a binary tree, return the postorder traversal of its nodes' values.
 
@@ -640,7 +683,7 @@ Output: [3,2,1]
 
 Follow up: Recursive solution is trivial, could you do it iteratively?
 ```
-### Solution
+#### Solution
 Finally comes the postorder, let's straightforwardly go to the iterative approach.
 ```python
 # Definition for a binary tree node.
@@ -665,8 +708,8 @@ class Solution:
 ```
 
 
-## 235. Lowest Common Ancestor of a Binary Search Tree
-### Problem
+### 235. Lowest Common Ancestor of a Binary Search Tree
+#### Problem
 ```text
 Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
 
@@ -686,7 +729,7 @@ Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
 Output: 2
 Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.
 ```
-### Solution
+#### Solution
 Since it's a BST, the LCA is the split point of the two nodes, we could easily find it with this property. 
 ```python
 # Definition for a binary tree node.
@@ -712,8 +755,8 @@ class Solution:
 ```
 
 
-## 236. Lowest Common Ancestor of a Binary Tree
-### Problem
+### 236. Lowest Common Ancestor of a Binary Tree
+#### Problem
 ```text
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
 
@@ -737,12 +780,13 @@ Note:
 All of the nodes' values will be unique.
 p and q are different and both values will exist in the binary tree.
 ```
-### Solution
+#### Solution
 Without the property of BST, we cannot easily find the LCA by a split point.  
 The idea here is to use a map to point each nodes to their parent nodes.   
 1. Iterate down through the root node until p and q was found, then we have all the ancestor nodes of p & q.   
 2. Add all ancestors of p into a set, and finally iterate up through ancestors of q.  
-Once a ancestor of q was found in the set, it is the LCA.
+Once a ancestor of q was found in the set, it is the LCA.  
+
 ```python
 # Definition for a binary tree node.
 # class TreeNode:
