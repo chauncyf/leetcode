@@ -1,6 +1,3 @@
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 /**
  * 23. Merge k Sorted Lists
  *
@@ -17,26 +14,31 @@ import java.util.PriorityQueue;
  * Output: 1->1->2->3->4->4->5->6
  */
 
-public class MergekSortedLists {
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) return null;
-        // PriorityQueue<ListNode> minQ = new PriorityQueue<>(lists.length, (ListNode l1, ListNode l2) -> l1.val - l2.val);
-        PriorityQueue<ListNode> minQ = new PriorityQueue<>(lists.length, new Comparator<ListNode>() {
-            public int compare(ListNode l1, ListNode l2) {
-                return l1.val - l2.val;
-            }
-        });
-        for (ListNode node: lists) {
-            if (node != null) minQ.offer(node);
-        }
         ListNode res = new ListNode(0);
         ListNode cur = res;
-        while (!minQ.isEmpty()) {
-            cur.next = minQ.poll();
-            cur = cur.next;
-            if (cur.next != null) {
-                minQ.offer(cur.next);
+        PriorityQueue<ListNode> minQ = new PriorityQueue<>((l1, l2) -> l1.val - l2.val);
+        for (ListNode l : lists) {
+            if (l != null) {
+                minQ.offer(l);
             }
+        }
+        while (!minQ.isEmpty()) {
+            ListNode tmp = minQ.poll();
+            cur.next = tmp;
+            if (tmp.next != null) {
+                minQ.offer(tmp.next);
+            }
+            cur = cur.next;
         }
         return res.next;
     }

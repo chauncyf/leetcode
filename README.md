@@ -31,3 +31,8 @@
 - [215. Kth Largest Element in an Array*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#215-kth-largest-element-in-an-array)
 ### May 24
 - [973. K Closest Points to Origin*](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#973-k-closest-points-to-origin)
+### May 25
+- [Wasting my life building a blog that no one would come by](https://chauncyf.github.io)
+### May 26
+- [21. Merge Two Sorted Lists](https://github.com/chauncyf/leetcode/blob/master/Java/MergeTwoSortedLists.java)
+- [23. Merge k Sorted Lists]()
