@@ -35,4 +35,6 @@
 - [Wasting my life building a blog that no one would come by](https://chauncyf.github.io)
 ### May 26
 - [21. Merge Two Sorted Lists](https://github.com/chauncyf/leetcode/blob/master/Java/MergeTwoSortedLists.java)
-- [23. Merge k Sorted Lists]()
+- [23. Merge k Sorted Lists](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#23-merge-k-sorted-lists)
+### May 28
+- [98. Validate Binary Search Tree]()
