@@ -4,9 +4,9 @@
  * Reverse a singly linked list.
  *
  * Example:
- *
  * Input: 1->2->3->4->5->NULL
  * Output: 5->4->3->2->1->NULL
+ *
  * Follow up:
  *
  * A linked list can be reversed either iteratively or recursively. Could you implement both?
@@ -20,16 +20,15 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-public class ReverseLinkedList {
+class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode cur = head;
-        ListNode prev = null;
+        ListNode cur = head, pre = null;
         while (cur != null) {
             ListNode next = cur.next;
-            cur.next = prev;
-            prev = cur;
+            cur.next = pre;
+            pre = cur;
             cur = next;
         }
-        return prev;
+        return pre;
     }
 }

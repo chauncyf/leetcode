@@ -37,4 +37,5 @@
 - [21. Merge Two Sorted Lists](https://github.com/chauncyf/leetcode/blob/master/Java/MergeTwoSortedLists.java)
 - [23. Merge k Sorted Lists](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#23-merge-k-sorted-lists)
 ### May 28
-- [98. Validate Binary Search Tree]()
+- [98. Validate Binary Search Tree](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#98-validate-binary-search-tree)
+- [206. Reverse Linked List](https://github.com/chauncyf/leetcode/blob/master/NOTE.md#206-reverse-linked-list)
