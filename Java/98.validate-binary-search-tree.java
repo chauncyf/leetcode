@@ -65,18 +65,17 @@
 class Solution {
     public boolean isValidBST(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode cur = root;
-        Integer pre = null;
+        TreeNode cur = root, pre = null;
         while (!stack.isEmpty() || cur != null) {
             while (cur != null) {
                 stack.push(cur);
                 cur = cur.left;
             }
             cur = stack.pop();
-            if (pre != null && pre >= cur.val) {
+            if (pre != null && pre.val >= cur.val) {
                 return false;
             }
-            pre = cur.val;
+            pre = cur;
             cur = cur.right;
         }
         return true;
