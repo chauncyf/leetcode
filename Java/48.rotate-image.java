@@ -40,7 +40,10 @@
  * ⁠ [9,6,3]
  * ]
  * 
- * 
+ * [1, 2, 3]  transpost  [1, 4, 7]  flip  [7, 4, 1]
+ * [4, 5, 6]  ========>  [2, 5, 8]  ===>  [8, 5, 2]
+ * [7, 8, 9]             [3, 6, 9]        [9, 6, 3]
+ *       
  * Example 2:
  * 
  * 
@@ -64,20 +67,21 @@
  */
 class Solution {
     public void rotate(int[][] matrix) {
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length - i; j++) {
-                int tmp = matrix[i][j];
-                matrix[i][j] = matrix[matrix.length - 1 - j][matrix[i].length - 1 - i];
-                matrix[matrix.length - 1 - j][matrix[i].length - 1 - i] = tmp;
+        // transpost
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = row; col < matrix[0].length; col++) {
+                int tmp = matrix[row][col];
+                matrix[row][col] = matrix[col][row];
+                matrix[col][row] = tmp;
             }
         }
-        for (int i = 0; i < matrix.length / 2; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                int tmp = matrix[i][j];
-                matrix[i][j] = matrix[matrix.length - 1 - i][j];
-                matrix[matrix.length - 1 - i][j] = tmp;
+        // flip
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[0].length / 2; col++) {
+                int tmp = matrix[row][col];
+                matrix[row][col] = matrix[row][matrix[0].length - 1 - col];
+                matrix[row][matrix[0].length - 1 - col] = tmp;
             }
         }
     }
 }
-

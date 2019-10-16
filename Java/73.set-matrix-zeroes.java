@@ -62,43 +62,48 @@
  */
 class Solution {
     public void setZeroes(int[][] matrix) {
-        boolean row = false, col = false;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] == 0) {
-                    if (i == 0) {
-                        row = true;
-                    }
-                    if (j == 0) {
-                        col = true;
-                    }
-                    matrix[i][0] = Integer.MIN_VALUE + 1;
-                    matrix[0][j] = Integer.MIN_VALUE + 1;
+        if (matrix.length == 0 || matrix[0].length == 0) return;
+        
+        boolean isCol = false;
+        
+        for (int row = 0; row < matrix.length; row++) {
+            if (matrix[row][0] == 0) {
+                isCol = true;
+            }
+            for (int col = 1; col < matrix[0].length; col++) {
+                if (matrix[row][col] == 0) {
+                    matrix[row][0] = 0;
+                    matrix[0][col] = 0;
+                }
+            }
+//             for (int col = 0; col < matrix[0].length; col++) {
+//                 if (matrix[row][col] == 0) {
+//                     matrix[row][0] = 0;
+//                     matrix[0][col] = 0;
+//                     if (col == 0) {
+//                         isCol = true;
+//                     }    
+//                 }
+//             }
+        }
+        
+        for (int row = 1; row < matrix.length; row++) {
+            for (int col = 1; col < matrix[0].length; col++) {
+                if (matrix[row][0] == 0 || matrix[0][col] == 0) {
+                    matrix[row][col] = 0;
                 }
             }
         }
-        for (int i = 1; i < matrix[0].length; i++) {
-            if (matrix[0][i] == Integer.MIN_VALUE + 1) {
-                for (int j = 0; j < matrix.length; j++) {
-                    matrix[j][i] = 0;
-                }
+                
+        if (matrix[0][0] == 0) {
+            for (int col = 0; col < matrix[0].length; col++) {
+                matrix[0][col] = 0;
             }
         }
-        for (int i = 1; i < matrix.length; i++) {
-            if (matrix[i][0] == Integer.MIN_VALUE + 1) {
-                for (int j = 0; j < matrix[i].length; j++) {
-                    matrix[i][j] = 0;
-                }
-            }
-        }
-        if (row) {
-            for (int i = 0; i < matrix[0].length; i++) {
-                matrix[0][i] = 0;
-            }
-        }
-        if (col) {
-            for (int i = 0; i < matrix.length; i++) {
-                matrix[i][0] = 0;
+                
+        if (isCol) {
+            for (int row = 0; row < matrix.length; row++) {
+                matrix[row][0] = 0;
             }
         }
     }
