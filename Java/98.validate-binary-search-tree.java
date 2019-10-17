@@ -75,7 +75,7 @@ class Solution {
             if (pre != null && pre.val >= cur.val) {
                 return false;
             }
-            pre = cur;
+            pre = cur;  // <-
             cur = cur.right;
         }
         return true;

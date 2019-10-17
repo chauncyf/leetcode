@@ -70,21 +70,12 @@ class Solution {
             if (matrix[row][0] == 0) {
                 isCol = true;
             }
-            for (int col = 1; col < matrix[0].length; col++) {
+            for (int col = 1; col < matrix[0].length; col++) {  // start with col 1, in case the first row becomes zero
                 if (matrix[row][col] == 0) {
                     matrix[row][0] = 0;
                     matrix[0][col] = 0;
                 }
             }
-//             for (int col = 0; col < matrix[0].length; col++) {
-//                 if (matrix[row][col] == 0) {
-//                     matrix[row][0] = 0;
-//                     matrix[0][col] = 0;
-//                     if (col == 0) {
-//                         isCol = true;
-//                     }    
-//                 }
-//             }
         }
         
         for (int row = 1; row < matrix.length; row++) {
