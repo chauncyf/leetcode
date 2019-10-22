@@ -36,8 +36,39 @@
  * 
  */
 class Solution {
+    // Recursive
     public List<List<Integer>> subsets(int[] nums) {
-        
+        List<List<Integer>> res = new ArrayList<>();
+        helper(nums, res, new ArrayList<>(), 0);
+        return res;
     }
+    
+    private void helper(int[] nums, List<List<Integer>> res, List<Integer> subs, int i) {
+        if (i == nums.length) {
+            res.add(subs);
+            return;
+        }
+        helper(nums, res, new ArrayList<>(subs), i + 1);
+        subs.add(nums[i]);
+        helper(nums, res, new ArrayList<>(subs), i + 1);
+    }
+
+    // Iterative
+    // public List<List<Integer>> subsets(int[] nums) {
+    //     List<List<Integer>> res = new ArrayList<>();
+    //     if (nums.length == 0) return res;
+        
+    //     res.add(new ArrayList<>());
+    //     for (int i = 0; i < nums.length; i++) {
+    //         int size = res.size();
+    //         for (int j = 0; j < size; j++) {
+    //             List<Integer> sub = new ArrayList<>(res.get(j));
+    //             sub.add(nums[i]);
+    //             res.add(sub);
+    //         }
+    //     }
+        
+    //     return res;
+    // }
 }
 
