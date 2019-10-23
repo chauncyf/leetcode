@@ -55,20 +55,19 @@
 
 // @lc code=start
 class Solution {
-    public boolean wordBreak(String s, List<String> wordDict) {
-        return find(s, new HashSet<>(wordDict), new HashMap<>());
-    }
+    Map<String, Boolean> memo;  // memoization
     
-    private boolean find(String s, Set<String> dict, Map<String, Boolean> memo) {
-        if (s == "" || dict.contains(s)) {
-            return true;
-        }
-        if (memo.containsKey(s)) {  // memoized
-            return memo.get(s);
-        }
+    public boolean wordBreak(String s, List<String> wordDict) {
+        this.memo = new HashMap<>();
+        return find(s, new HashSet<>(wordDict));
+    }
         
-        for (int i = 1; i < s.length(); i++) {
-            if (dict.contains(s.substring(0, i)) && find(s.substring(i, s.length()), dict, memo)) {
+    private boolean find(String s, Set<String> dict) {
+        if (s.equals("")) return true;
+        if (memo.containsKey(s)) return memo.get(s);  // memoized
+        
+        for (int i = 1; i <= s.length(); i++) {  // be careful about the index
+            if (dict.contains(s.substring(0, i)) && find(s.substring(i), dict)) {
                 memo.put(s, true);  // memoize
                 return true;
             }

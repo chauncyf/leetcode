@@ -64,39 +64,39 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-         if (root == null) return root;
+        if (root == null) return null;
         
-        Map<TreeNode, TreeNode> parentMap = new HashMap<>();
+        Map<TreeNode, TreeNode> map = new HashMap<>();
         Stack<TreeNode> stack = new Stack<>();
-        
-        parentMap.put(root, null);
+        map.put(root, null);
         stack.push(root);
-        while (!parentMap.containsKey(p) || !parentMap.containsKey(q)) {
-            TreeNode cur = stack.pop();
+        
+        while (!stack.isEmpty()) {
+            if (map.containsKey(p) && map.containsKey(q)) break;
             
+            TreeNode cur = stack.pop();
             if (cur.right != null) {
-                parentMap.put(cur.right, cur);
+                map.put(cur.right, cur);
                 stack.push(cur.right);
             }
             if (cur.left != null) {
-                parentMap.put(cur.left, cur);
+                map.put(cur.left, cur);
                 stack.push(cur.left);
             }
         }
         
-        Set<TreeNode> ances = new HashSet<>();
-        TreeNode anc = p;
-        while (anc != null) {
-            ances.add(anc);
-            anc = parentMap.get(anc);
+        Set<TreeNode> set = new HashSet<>();
+        while (p != null) {
+            set.add(p);
+            p = map.get(p);
         }
         
-        anc = q;
-        while (!ances.contains(anc)) {
-            anc = parentMap.get(anc);
+        while (q != null) {
+            if (set.contains(q)) return q;
+            q = map.get(q);
         }
-        return anc;
+        
+        return null;
     }
 }
 // @lc code=end
-
