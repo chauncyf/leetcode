@@ -40,8 +40,7 @@ class Solution {
     public boolean isPalindrome(String s) {
         int lo = 0, hi = s.length() - 1;
         while (lo < hi) {            
-            // while ((Character.toLowerCase(s.charAt(lo)) < 'a' || Character.toLowerCase(s.charAt(lo)) > 'z') && lo < hi) lo++;
-            // while ((Character.toLowerCase(s.charAt(hi)) < 'a' || Character.toLowerCase(s.charAt(hi)) > 'z') && lo < hi) hi--;
+            /* Remember Character.isLetterOrDigit(c) && Character.toLowerCase(c) */
             while (!Character.isLetterOrDigit(s.charAt(lo)) && lo < hi) lo++;
             while (!Character.isLetterOrDigit(s.charAt(hi)) && lo < hi) hi--;
             if (Character.toLowerCase(s.charAt(lo)) != Character.toLowerCase(s.charAt(hi))) return false;

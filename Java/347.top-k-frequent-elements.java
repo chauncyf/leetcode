@@ -42,7 +42,7 @@
 
 // @lc code=start
 class Solution {
-    // Bucket Sort Solution
+    /* Bucket Sort Solution */
     public List<Integer> topKFrequent(int[] nums, int k) {
         List<Integer>[] bucket = new List[nums.length + 1];
         Map<Integer, Integer> map = new HashMap<>();
@@ -71,8 +71,7 @@ class Solution {
         return res;
     }
 
-    // PQ Solution
-
+    /* PriorityQueue Solution */
     // public List<Integer> topKFrequent(int[] nums, int k) {
     //     Map<Integer, Integer> map = new HashMap<>();
     //     for (int i : nums) {
@@ -91,9 +90,7 @@ class Solution {
     //     }
         
     //     Collections.reverse(res);
-    
     //     return res;
     // }
 }
 // @lc code=end
-

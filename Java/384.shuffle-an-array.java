@@ -46,7 +46,7 @@ class Solution {
         this.nums = nums;
         this.org = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            org[i] = nums[i];
+            this.org[i] = nums[i];
         }
     }
     
