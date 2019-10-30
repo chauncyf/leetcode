@@ -35,7 +35,24 @@
 // @lc code=start
 class Solution {
     public List<String> generateParenthesis(int n) {
-        
+        List<String> res = new ArrayList<>();
+        helper(res, n, 0, new StringBuilder());
+        return res;
+    }
+    
+    private void helper(List<String> list, int r, int l, StringBuilder str) {
+        if (r == 0 && l == 0) {
+            list.add(str.toString());
+            return;
+        }
+        if (r > 0) {
+            helper(list, r - 1, l + 1, str.append("("));
+            str.deleteCharAt(str.length() - 1);
+        }
+        if (l > 0) {
+            helper(list, r, l - 1, str.append(")"));
+            str.deleteCharAt(str.length() - 1);
+        }
     }
 }
 // @lc code=end
