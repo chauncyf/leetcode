@@ -95,6 +95,10 @@
 
 
 ## Sort
+[56.merge-intervals](https://github.com/chauncyf/leetcode/blob/master/Java/56.merge-intervals.java)  
+[252.meeting-rooms](https://github.com/chauncyf/leetcode/blob/master/Java/252.meeting-rooms.java)  
+[253.meeting-rooms-ii](https://github.com/chauncyf/leetcode/blob/master/Java/253.meeting-rooms-ii.java)
+
 [215.kth-largest-element-in-an-array](https://github.com/chauncyf/leetcode/blob/master/Java/215.kth-largest-element-in-an-array.java)
 
 [347.top-k-frequent-elements](https://github.com/chauncyf/leetcode/blob/master/Java/347.top-k-frequent-elements.java)
@@ -109,6 +113,8 @@
 
 
 ## Backtrack
+[22.generate-parentheses](https://github.com/chauncyf/leetcode/blob/master/Java/22.generate-parentheses.java)
+
 [39.combination-sum](https://github.com/chauncyf/leetcode/blob/master/Java/39.combination-sum.java)
 
 [40.combination-sum-ii](https://github.com/chauncyf/leetcode/blob/master/Java/40.combination-sum-ii.java)

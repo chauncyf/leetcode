@@ -34,6 +34,7 @@
 
 // @lc code=start
 class Solution {
+    /* runtime / space : O(4^n / sqrt(n)) */
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
         helper(res, n, 0, new StringBuilder());
