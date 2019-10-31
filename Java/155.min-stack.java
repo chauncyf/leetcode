@@ -42,17 +42,17 @@
  * 
  */
 class MinStack {
-    private Integer min;
     private Stack<Integer> stack;
-
+    private Integer min;
+        
     /** initialize your data structure here. */
     public MinStack() {
         stack = new Stack<>();
-        min = Integer.MAX_VALUE;
+        min = null;
     }
     
     public void push(int x) {
-        if (x <= min) {
+        if (min == null || x <= min) {
             stack.push(min);
             min = x;
         }
@@ -60,9 +60,15 @@ class MinStack {
     }
     
     public void pop() {
-        if (stack.pop() == min) {
+        int val = stack.pop();
+        if (val == min) {
             min = stack.pop();
         }
+
+        //why this way will get wrong result
+        // if (stack.pop() == min) {
+            // min = stack.pop();
+        // }
     }
     
     public int top() {
@@ -82,4 +88,3 @@ class MinStack {
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
  */
-
