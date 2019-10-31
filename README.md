@@ -1,6 +1,6 @@
 # .-.. . . - -.-. --- -.. .
 
-## String
+## String 
 [3.longest-substring-without-repeating-characters](https://github.com/chauncyf/leetcode/blob/master/Java/3.longest-substring-without-repeating-characters.java)
 
 [5.longest-palindromic-substring](https://github.com/chauncyf/leetcode/blob/master/Java/5.longest-palindromic-substring.java)  
@@ -118,6 +118,8 @@
 [39.combination-sum](https://github.com/chauncyf/leetcode/blob/master/Java/39.combination-sum.java)
 
 [40.combination-sum-ii](https://github.com/chauncyf/leetcode/blob/master/Java/40.combination-sum-ii.java)
+
+[46.permutations](https://github.com/chauncyf/leetcode/blob/master/Java/46.permutations.java)
 
 [78.subsets](https://github.com/chauncyf/leetcode/blob/master/Java/78.subsets.java)
 

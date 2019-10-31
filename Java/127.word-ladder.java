@@ -61,16 +61,52 @@
  * Explanation: The endWord "cog" is not in wordList, therefore no possible
  * transformation.
  * 
- * 
- * 
- * 
- * 
  */
 
 // @lc code=start
 class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Map<String, List<String>> wildDict = new HashMap<>();
+        Map<String, Integer> discoverMap = new HashMap<>();
+        Queue<String> q = new LinkedList<>();
+
+        // construct wildcard dict
+        for (String word : wordList) {
+            for (int i = 0; i < word.length(); i++) {
+                String w = word.substring(0, i) + "*" + word.substring(i + 1);
+                List<String> list = wildDict.getOrDefault(w, new ArrayList<>());
+                list.add(word);
+                wildDict.put(w, list);
+            }
+        }
         
+        // bfs
+        discoverMap.put(beginWord, 1);
+        q.offer(beginWord);
+        while (!q.isEmpty()) {
+            String word = q.poll();
+            for (int i = 0; i < word.length(); i++) {
+                
+                // find all adjacent words
+                String wildWord = word.substring(0, i) + "*" + word.substring(i + 1);
+                if (wildDict.containsKey(wildWord)) {
+                    for (String adjWord : wildDict.get(wildWord)) {
+                        int level = discoverMap.get(word) + 1;
+                        if (adjWord.equals(endWord)) {
+                            return level;
+                        }
+                        
+                        // if not discovered yet, add to discover map
+                        if (!discoverMap.containsKey(adjWord)) {
+                            discoverMap.put(adjWord, level);
+                            q.offer(adjWord);
+                        }
+                    }
+                }
+            }
+        }
+        
+        return 0;
     }
 }
 // @lc code=end

@@ -37,21 +37,41 @@
  */
 class Solution {
     // Recursive
+    List<List<Integer>> res = new ArrayList<>();
+
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        helper(nums, res, new ArrayList<>(), 0);
+        find(nums, new ArrayList<>(), 0);
         return res;
     }
     
-    private void helper(int[] nums, List<List<Integer>> res, List<Integer> subs, int i) {
-        if (i == nums.length) {
-            res.add(subs);
+    private void find(int[] nums, List<Integer> set, int idx) {
+        if (idx == nums.length) {
+            res.add(new ArrayList<>(set));
             return;
         }
-        helper(nums, res, new ArrayList<>(subs), i + 1);
-        subs.add(nums[i]);
-        helper(nums, res, new ArrayList<>(subs), i + 1);
+        find(nums, set, idx + 1);
+        set.add(nums[idx]);
+        find(nums, set, idx + 1);
+        set.remove(set.size() - 1);
     }
+
+    
+    // public List<List<Integer>> subsets(int[] nums) {
+    //     List<List<Integer>> res = new ArrayList<>();
+    //     helper(nums, res, new ArrayList<>(), 0);
+    //     return res;
+    // }
+    
+    // private void helper(int[] nums, List<List<Integer>> res, List<Integer> subs, int i) {
+    //     if (i == nums.length) {
+    //         res.add(subs);
+    //         return;
+    //     }
+    //     helper(nums, res, new ArrayList<>(subs), i + 1);
+    //     subs.add(nums[i]);
+    //     helper(nums, res, new ArrayList<>(subs), i + 1);
+    // }
+
 
     // Iterative
     // public List<List<Integer>> subsets(int[] nums) {
@@ -71,4 +91,3 @@ class Solution {
     //     return res;
     // }
 }
-
