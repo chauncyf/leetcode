@@ -47,22 +47,8 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        return trav(root, 0);   
+        if (root == null) return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
-    
-    private int trav(TreeNode node, int depth) {
-        if (node == null) return depth;
-        return Math.max(trav(node.left, depth + 1), trav(node.right, depth + 1));
-    }
-
-    // public int maxDepth(TreeNode root) {
-    //     if (root == null) {
-    //     return 0;
-    //     } else {
-    //     int left_height = maxDepth(root.left);
-    //     int right_height = maxDepth(root.right);
-    //     return Math.max(left_height, right_height) + 1;
-    //     }
-    // }
 }
 // @lc code=end
