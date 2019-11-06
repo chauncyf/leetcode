@@ -25,17 +25,13 @@ class Solution {
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
         PriorityQueue<Integer[]> minQ = new PriorityQueue<>((a, b) -> a[1] - b[1]);
         
-        int room = 0;
-        for (int[] interval : intervals) {
-            if (minQ.isEmpty() || interval[0] < minQ.peek()[1]) {    
-                minQ.offer(new Integer[]{interval[0], interval[1]});
-                room = Math.max(room, minQ.size());
-            } else {
-                minQ.poll();
-                minQ.offer(new Integer[]{interval[0], interval[1]});
-            }
+        int min = 0;
+        for (int[] inte : intervals) {            
+            if (!minQ.isEmpty() && minQ.peek()[1] <= inte[0]) minQ.poll();
+            minQ.offer(new Integer[]{inte[0], inte[1]});
+            min = Math.max(min, minQ.size());
         }
         
-        return room;
+        return min;
     }
 }
