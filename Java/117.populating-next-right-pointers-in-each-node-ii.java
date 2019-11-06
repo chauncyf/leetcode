@@ -79,23 +79,57 @@ class Node {
 */
 class Solution {
     public Node connect(Node root) {
-        if (root == null) return root;
-        Queue<Node> q = new LinkedList<>();
-        q.offer(root);
-        while (!q.isEmpty()) {
-            int size = q.size();
-            Node pre = null;
-            for (int i = 0; i < size; i++) {
-                Node cur = q.poll();
-                if (pre != null) {
-                    pre.next = cur;
+        if (root == null) return null;
+        
+        Node levelHead = root;
+        Node cur = null;
+        Node pre = null;
+        while (levelHead != null) {
+            cur = levelHead;
+            levelHead = null;
+            pre = null;
+            while (cur != null) {
+                if (cur.left != null) {
+                    if (pre != null) {
+                        pre.next = cur.left;
+                    } else {
+                        levelHead = cur.left;
+                    }
+                    pre = cur.left;
                 }
-                if (cur.left != null) q.offer(cur.left);
-                if (cur.right != null) q.offer(cur.right);
-                pre = cur;
+                if (cur.right != null) {
+                    if (pre != null) {
+                        pre.next = cur.right;
+                    } else {
+                        levelHead = cur.right;
+                    }
+                    pre = cur.right;
+                }
+                cur = cur.next;
             }
         }
+        
         return root;
     }
+
+    // public Node connect(Node root) {
+    //     if (root == null) return root;
+    //     Queue<Node> q = new LinkedList<>();
+    //     q.offer(root);
+    //     while (!q.isEmpty()) {
+    //         int size = q.size();
+    //         Node pre = null;
+    //         for (int i = 0; i < size; i++) {
+    //             Node cur = q.poll();
+    //             if (pre != null) {
+    //                 pre.next = cur;
+    //             }
+    //             if (cur.left != null) q.offer(cur.left);
+    //             if (cur.right != null) q.offer(cur.right);
+    //             pre = cur;
+    //         }
+    //     }
+    //     return root;
+    // }
 }
 // @lc code=end

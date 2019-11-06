@@ -65,7 +65,7 @@ class Solution {
         int peak = prices[0];
         int valley = prices[0];
         int i = 0;
-        while (i < prices.length - 1) {
+        while (i < prices.length - 1) { // <-
             while (i < prices.length - 1 && prices[i] >= prices[i + 1]) i++;
             valley = prices[i];
             while (i < prices.length - 1 && prices[i] <= prices[i + 1]) i++;
@@ -77,4 +77,3 @@ class Solution {
     }
 }
 // @lc code=end
-

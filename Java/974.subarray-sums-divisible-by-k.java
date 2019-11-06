@@ -38,13 +38,21 @@
  * -10000 <= A[i] <= 10000
  * 2 <= K <= 10000
  * 
- * 
  */
 
 // @lc code=start
 class Solution {
+    /* Brute Force */
     public int subarraysDivByK(int[] A, int K) {
-        
+        int res = 0;
+        for (int i = 0; i < A.length; i++) {
+            int curSum = 0;
+            for (int j = i; j < A.length; j++) {
+                curSum += A[j];
+                if (curSum % K == 0) res++;
+            }
+        }
+        return res;
     }
 }
 // @lc code=end
