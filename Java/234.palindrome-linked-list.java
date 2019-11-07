@@ -42,8 +42,59 @@
  * }
  */
 class Solution {
+    /* Reverse First Half */
     public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) return true;
         
+        ListNode lo = head, hi = head;
+        ListNode pre = null, nex = null;
+        while (hi != null && hi.next != null) {
+            hi = hi.next.next;
+            
+            nex = lo.next;
+            lo.next = pre;
+            pre = lo;
+            lo = nex;
+        }
+        lo = pre;
+        hi = (hi == null) ? nex : nex.next;
+        
+        while (lo != null) {
+            if (lo.val != hi.val) return false;
+            lo = lo.next;
+            hi = hi.next;
+        }
+        
+        return true;
     }
+
+    /* Reverse Second Half */
+    // public boolean isPalindrome(ListNode head) {
+    //     ListNode lo = head, hi = head;
+    //     while (hi != null && hi.next != null) {
+    //         lo = lo.next;
+    //         hi = hi.next.next;
+    //     }
+    //     if (hi != null) lo = lo.next;  // skip center odd node
+        
+    //     // reverse second half
+    //     ListNode pre = null, cur = lo;
+    //     while (cur != null) {
+    //         ListNode nex = cur.next;
+    //         cur.next = pre;
+    //         pre = cur;
+    //         cur = nex;
+    //     }
+        
+    //     hi = pre;
+    //     lo = head;
+    //     while (hi != null) {  // cannot use lo here, only reversed half has an end
+    //         if (hi.val != lo.val) return false;
+    //         hi = hi.next;
+    //         lo = lo.next;
+    //     }
+        
+    //     return true;
+    // }
 }
 // @lc code=end

@@ -50,7 +50,15 @@
 // @lc code=start
 class Solution {
     public boolean isPalindrome(int x) {
-        
+        if (x == 0) return true;
+        if (x < 0 || x % 10 == 0) return false;  // impossible to be palindrome if last digit is 0
+        int half = 0;
+        while (x != 0) {
+            if (x == half || x / 10 == half) return true;
+            half = half * 10 + x % 10;
+            x /= 10;
+        }
+        return false;
     }
 }
 // @lc code=end

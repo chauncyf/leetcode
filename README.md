@@ -28,12 +28,16 @@
 
 [49.group-anagrams](https://github.com/chauncyf/leetcode/blob/master/Java/49.group-anagrams.java)
 
+[54.spiral-matrix](https://github.com/chauncyf/leetcode/blob/master/Java/54.spiral-matrix.java)
+[59.spiral-matrix-ii](https://github.com/chauncyf/leetcode/blob/master/Java/59.spiral-matrix-ii.java)
+
 [73.set-matrix-zeroes](https://github.com/chauncyf/leetcode/blob/master/Java/73.set-matrix-zeroes.java)
 
 [189.rotate-array](https://github.com/chauncyf/leetcode/blob/master/Java/189.rotate-array.java)
 
 [349.intersection-of-two-arrays](https://github.com/chauncyf/leetcode/blob/master/Java/349.intersection-of-two-arrays.java)  
 [1213.intersection-of-three-sorted-arrays](https://github.com/chauncyf/leetcode/blob/master/Java/1213.intersection-of-three-sorted-arrays.java)  
+[1198.find-smallest-common-element-in-all-rows](https://github.com/chauncyf/leetcode/blob/master/Java/1198.find-smallest-common-element-in-all-rows.java)
 
 [523.continuous-subarray-sum](https://github.com/chauncyf/leetcode/blob/master/Java/523.continuous-subarray-sum.java)  
 [974.subarray-sums-divisible-by-k](https://github.com/chauncyf/leetcode/blob/master/Java/974.subarray-sums-divisible-by-k.java)
@@ -51,6 +55,8 @@
 [23.merge-k-sorted-lists](https://github.com/chauncyf/leetcode/blob/master/Java/23.merge-k-sorted-lists.java)
 
 [206.reverse-linked-list](https://github.com/chauncyf/leetcode/blob/master/Java/206.reverse-linked-list.java)
+[92.reverse-linked-list-ii](https://github.com/chauncyf/leetcode/blob/master/Java/92.reverse-linked-list-ii.java)
+[234.palindrome-linked-list](https://github.com/chauncyf/leetcode/blob/master/Java/234.palindrome-linked-list.java)
 
 ---
 
@@ -146,7 +152,7 @@
 
 [155.min-stack](https://github.com/chauncyf/leetcode/blob/master/Java/155.min-stack.java)
 
-[208.implement-trie-prefix-tree](https://github.com/chauncyf/leetcode/blob/35169e51b1b7b2486fbf7c1e38194d214ef73298/Java/208.implement-trie-prefix-tree.java)
+[208.implement-trie-prefix-tree](https://github.com/chauncyf/leetcode/blob/master/Java/208.implement-trie-prefix-tree.java)
 
 ## Math
 [50.pow-x-n](https://github.com/chauncyf/leetcode/blob/master/Java/50.pow-x-n.java)

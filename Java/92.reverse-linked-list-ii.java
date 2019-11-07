@@ -37,7 +37,35 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {
+        if (head == null || m == n) return head;
         
+        ListNode dummyHead = new ListNode(0);  // incase reversed from first node
+        dummyHead.next = head;
+        
+        ListNode pre = dummyHead;  // tail of first half
+        ListNode cur = head;
+        while (--m > 0) {
+            pre = cur;  
+            cur = cur.next;
+            n--;
+        }
+        
+        ListNode revTail = cur;  // tail of reversed part
+        ListNode preTmp = null;
+        while (--n > 0) {
+            ListNode nexTmp = cur.next;
+            cur.next = preTmp;
+            preTmp = cur;
+            cur = nexTmp;
+        }
+        
+        ListNode secHead = cur.next;  // head of second half
+        cur.next = preTmp;  // head of reversed part
+        
+        pre.next = cur;
+        revTail.next = secHead;
+        
+        return dummyHead.next;
     }
 }
 // @lc code=end
