@@ -41,8 +41,8 @@ class Solution {
         int lo = 0, hi = s.length() - 1;
         while (lo < hi) {            
             /* Remember Character.isLetterOrDigit(c) && Character.toLowerCase(c) */
-            while (!Character.isLetterOrDigit(s.charAt(lo)) && lo < hi) lo++;
-            while (!Character.isLetterOrDigit(s.charAt(hi)) && lo < hi) hi--;
+            while (lo < hi && !Character.isLetterOrDigit(s.charAt(lo))) lo++;
+            while (lo < hi && !Character.isLetterOrDigit(s.charAt(hi))) hi--;
             if (Character.toLowerCase(s.charAt(lo)) != Character.toLowerCase(s.charAt(hi))) return false;
             lo++;
             hi--;

@@ -73,6 +73,44 @@ class Solution {
         }
     }
 
+    
+    /* Follow Up */
+    // public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    //     Arrays.sort(candidates); // sort the array, so the result could be increasing order
+    //     List<List<Integer>> result = new ArrayList<List<Integer>>();
+
+    //     for(int i = 0; i < candidates.length; i++){
+    //         // target smaller than current number, jump the current and rest of numbers
+    //         if(target < candidates[i]) continue;
+
+    //         // if target is equal to the current number,add it to a new list and add that list to result          
+    //         else if(target == candidates[i]){
+    //             List<Integer> set = new ArrayList<Integer>();
+    //             set.add(candidates[i]);
+    //             result.add(set);
+    //         }
+
+    //         // if the target is smaller the current number,call this function again
+    //         else{
+    //             // use modified array which not includes those numbers that before i to eliminate the duplicates
+    //             int[] array = Arrays.copyOfRange(candidates,i,candidates.length);
+
+    //             // call this function. pass the new target and modified array.
+    //             List<List<Integer>> temp = combinationSum(array, target - candidates[i]);
+
+    //             // for each list in the return list, add current number in the front of list, then add it to result
+    //             // attention that if return list is null, this enhanced for loop will not perform. 
+    //             for(List<Integer> list:temp){
+    //                 list.add(0,candidates[i]);
+    //                 result.add(list);
+    //             } 
+    //         }
+    //     }
+
+    //     return result;
+    // }
+
+
     /* Same to Word Break II, without memoize, with duplicate */
 
     // List<List<Integer>> res;

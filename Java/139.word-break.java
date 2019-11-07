@@ -76,5 +76,77 @@ class Solution {
         memo.put(s, false);  // memoize
         return false;
     }
+
+    /*
+        "catsandog"
+        ["cats", "dog", "sand", "and", "cat"]
+
+        >>> c
+        >>> ca
+        >>> cat
+        >>> s
+        >>> sa
+        >>> san
+        >>> sand
+        >>> o
+        >>> og
+        og <-- false
+        >>> sando
+        >>> sandog
+        sandog <-- false
+        >>> cats
+        >>> a
+        >>> an
+        >>> and
+        og -memo-> false
+        >>> ando
+        >>> andog
+        andog <-- false
+        >>> catsa
+        >>> catsan
+        >>> catsand
+        >>> catsando
+        >>> catsandog
+        catsandog <-- false
+    */
+    /*
+        "aaaaab"
+        ["a","aa","aaa"]
+
+        >>> a
+        >>> a
+        >>> a
+        >>> a
+        >>> a
+        >>> b
+        b <-- false
+        >>> ab
+        ab <-- false
+        >>> aa
+        b -memo-> false
+        >>> aab
+        aab <-- false
+        >>> aa
+        ab -memo-> false
+        >>> aaa
+        b -memo-> false
+        >>> aaab
+        aaab <-- false
+        >>> aa
+        aab -memo-> false
+        >>> aaa
+        ab -memo-> false
+        >>> aaaa
+        >>> aaaab
+        aaaab <-- false
+        >>> aa
+        aaab -memo-> false
+        >>> aaa
+        aab -memo-> false
+        >>> aaaa
+        >>> aaaaa
+        >>> aaaaab
+        aaaaab <-- false
+    */
 }
 // @lc code=end

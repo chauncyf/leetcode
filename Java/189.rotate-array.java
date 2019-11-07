@@ -46,8 +46,62 @@
  * 
  */
 class Solution {
-    public void rotate(int[] nums, int k) {
-        
-    }
-}
+    /*
+        nums = "----->-->"; k =3
+        result = "-->----->";
 
+        reverse "----->-->" we can get "<--<-----"
+        reverse "<--" we can get "--><-----"
+        reverse "<-----" we can get "-->----->"
+    */
+    public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        if (k == 0) return;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
+    }
+    
+    private void reverse(int[] nums, int i, int j) {
+        while (i < j) {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+            i++;
+            j--;
+        }
+    }
+
+    /* Naive */
+
+    // public void rotate(int[] nums, int k) {
+    //     k = k % nums.length;
+    //     if (k == 0) return;
+        
+    //     int[] tmp = new int[k];
+    //     for (int i = nums.length - k; i < nums.length; i++) {
+    //         tmp[i - nums.length + k] = nums[i];
+    //     }
+    //     for (int i = nums.length - 1 - k; i >= 0; i--) {
+    //         nums[i + k] = nums[i];
+    //     }
+    //     for (int i = 0; i < k; i++) {
+    //         nums[i] = tmp[i];
+    //     }
+    // }
+
+    // public void rotate(int[] nums, int k) {
+    //     k = k % nums.length;
+    //     int[] res = new int[nums.length];
+    //     int idx = nums.length - 1;
+    //     for (int i = nums.length - 1 - k; i >= 0; i--) {
+    //         res[idx--] = nums[i];
+    //     }
+    //     for (int i = nums.length - 1; i >= nums.length - k; i--) {
+    //         res[idx--] = nums[i];
+    //     }
+    //     for (int i = 0; i < nums.length; i++) {
+    //         nums[i] = res[i];
+    //     }
+    // }
+}

@@ -40,20 +40,12 @@
 // @lc code=start
 class Solution {
     public int longestPalindrome(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        
+        Set<Character> set = new HashSet<>();
         for (char c : s.toCharArray()) {
-            map.put(c, map.getOrDefault(c, 0) + 1);
+            if (set.contains(c)) set.remove(c);
+            else set.add(c);
         }
-        
-        int res = 0, odd = 0;
-        for (char c : map.keySet()) {
-            // if (map.get(c) % 2 == 0) res+= map.get(c);
-            // else if (map.get(c) > odd) odd = map.get(c);
-            res += map.get(c) / 2 * 2;
-        }
-        
-        return (res == s.length()) ? res : res + 1;
+        return set.isEmpty() ? s.length() : s.length() - set.size() + 1;
     }
 }
 // @lc code=end
