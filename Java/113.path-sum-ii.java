@@ -54,8 +54,27 @@
  * }
  */
 class Solution {
+    List<List<Integer>> res = new ArrayList<>();
+    
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        helper(root, sum, new ArrayList<>());
+        return res;
+    }
+    
+    private void helper(TreeNode node, int sum, List<Integer> path) {
+        if (node == null) return;
         
+        if (sum - node.val == 0 && node.left == null && node.right == null) {
+            path.add(node.val);
+            res.add(new ArrayList<>(path));
+            path.remove(path.size() - 1);
+            return;
+        }
+        
+        path.add(node.val);
+        helper(node.left, sum - node.val, path);
+        helper(node.right, sum - node.val, path);
+        path.remove(path.size() - 1);
     }
 
     // private List<List<Integer>> res;

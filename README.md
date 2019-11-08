@@ -155,4 +155,6 @@
 [208.implement-trie-prefix-tree](https://github.com/chauncyf/leetcode/blob/master/Java/208.implement-trie-prefix-tree.java)
 
 ## Math
+[7.reverse-integer](https://github.com/chauncyf/leetcode/blob/master/Java/7.reverse-integer.java)
+
 [50.pow-x-n](https://github.com/chauncyf/leetcode/blob/master/Java/50.pow-x-n.java)
