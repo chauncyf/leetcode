@@ -47,9 +47,16 @@
 
 // @lc code=start
 class Solution {
-    public int[] sortArray(int[] nums) {
+    // public int[] sortArray(int[] nums) {
+    //     quickSort(nums, 0, nums.length - 1);
+    //     return nums;
+    // }
+
+    public List<Integer> sortArray(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
-        return nums;
+        List<Integer> res = new ArrayList<>();
+        for (int i : nums) res.add(i);
+        return res;
     }
     
     public void quickSort(int[] arr, int lo, int hi) {
@@ -65,7 +72,7 @@ class Solution {
         int i = lo;
         
         for (int j = lo; j < hi; j++) {
-            if (arr[j] < pivot) {
+            if (arr[j] <= pivot) {
                 swap(arr, i, j);
                 i++;
             }
