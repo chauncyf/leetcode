@@ -59,8 +59,19 @@
  * }
  */
 class Solution {
+    int max = Integer.MIN_VALUE;
+    
     public int maxPathSum(TreeNode root) {
-        
+        maxGain(root);
+        return max;
+    }
+    
+    private int maxGain(TreeNode node) {
+        if (node == null) return 0;
+        int maxLeft = Math.max(maxGain(node.left), 0);
+        int maxRight = Math.max(maxGain(node.right), 0);
+        max = Math.max(max, node.val + maxLeft + maxRight);
+        return node.val + Math.max(maxLeft, maxRight);
     }
 }
 // @lc code=end

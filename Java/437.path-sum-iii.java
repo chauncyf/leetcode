@@ -56,49 +56,46 @@
  * }
  */
 class Solution {
+    /* Prefix Sum */
     private int res = 0;
-
+    
     public int pathSum(TreeNode root, int sum) {
-        if (root == null) return 0;
-        helper(root, sum);
-        pathSum(root.left, sum);
-        pathSum(root.right, sum);
+        Map<Integer, Integer> prefixSumMap = new HashMap<>();  // sum -> freq
+        prefixSumMap.put(0, 1);
+        helper(root, sum, 0, prefixSumMap);
         return res;
     }
     
-    private void helper(TreeNode node, int sum) {
+    private void helper(TreeNode node, int sum, int curSum, Map<Integer, Integer> preSum) {
         if (node == null) return;
-        if (sum - node.val == 0) res++;
-        helper(node.left, sum - node.val);
-        helper(node.right, sum - node.val);
+        
+        curSum += node.val;
+        if (preSum.containsKey(curSum - sum)) {  // curSum - preSum = sum -> looking for preSum in Map
+            res += preSum.get(curSum - sum);
+        }
+        
+        preSum.put(curSum, preSum.getOrDefault(curSum, 0) + 1);
+        helper(node.left, sum, curSum, preSum);
+        helper(node.right, sum, curSum, preSum);
+        preSum.put(curSum, preSum.get(curSum) - 1);
     }
 
-    
+    /* Recursive */
+    // private int res = 0;
+
     // public int pathSum(TreeNode root, int sum) {
     //     if (root == null) return 0;
-    //     return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
-    // }
-    
-    // private int pathSumFrom(TreeNode node, int sum) {
-    //     if (node == null) return 0;
-    //     return (node.val == sum ? 1 : 0) 
-    //         + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
-    // }
-
-
-// why
-    // int res = 0;
-    // public int pathSum(TreeNode root, int sum) {        
-    //     helper(root, sum, 0);
+    //     helper(root, sum);
+    //     pathSum(root.left, sum);
+    //     pathSum(root.right, sum);
     //     return res;
     // }
-    // private void helper(TreeNode node, int sum, int curSum) {
-    //     if (curSum == sum) res++;
+    
+    // private void helper(TreeNode node, int sum) {
     //     if (node == null) return;
-    //     helper(node.left, sum, curSum + node.val);
-    //     helper(node.right, sum, curSum + node.val);
-    //     helper(node.left, sum, 0);
-    //     helper(node.right, sum, 0);
+    //     if (sum - node.val == 0) res++;
+    //     helper(node.left, sum - node.val);
+    //     helper(node.right, sum - node.val);
     // }
 }
 // @lc code=end

@@ -22,16 +22,18 @@
 
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        if (intervals.length == 0) return 0;
+        
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);        
         PriorityQueue<Integer[]> minQ = new PriorityQueue<>((a, b) -> a[1] - b[1]);
         
-        int min = 0;
-        for (int[] inte : intervals) {            
-            if (!minQ.isEmpty() && minQ.peek()[1] <= inte[0]) minQ.poll();
-            minQ.offer(new Integer[]{inte[0], inte[1]});
-            min = Math.max(min, minQ.size());
+        for (int[] i : intervals) {
+            // if current interval's start time > smallest end time in the minQ, we know that we can use that room
+            // otherwise, we need a new room
+            if (!minQ.isEmpty() && i[0] >= minQ.peek()[1]) minQ.poll();
+            minQ.offer(new Integer[]{i[0], i[1]});
         }
         
-        return min;
+        return minQ.size();
     }
 }

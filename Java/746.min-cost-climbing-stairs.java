@@ -50,23 +50,31 @@
 
 // @lc code=start
 class Solution {
-    public int minCostClimbingStairs(int[] cost) {
-        if (cost.length <= 1) return 0;
-        int n1 = 0, n2 = 0;
-        for (int i = 0; i < cost.length; i++) {
-            int curMin = cost[i] + Math.min(n1, n2);
-            n2 = n1;
-            n1 = curMin;
-        }
-        return Math.min(n1, n2);
-    }
+    Map<Integer, Integer> memo = new HashMap<>();  // idx -> cost
 
+    public int minCostClimbingStairs(int[] cost) {
+        return Math.min(helper(cost, 0), helper(cost, 1));
+    }
+    
+    private int helper(int[] cost, int i) {
+        if (i >= cost.length) return 0;
+        if (memo.containsKey(i)) return memo.get(i);
+        
+        int curCost = cost[i] + Math.min(helper(cost, i + 1), helper(cost, i + 2));
+        memo.put(i, curCost);
+        
+        return curCost;
+    }
+    
     // public int minCostClimbingStairs(int[] cost) {
-    //     return Math.min(findMinCost(cost, 0, 0), findMinCost(cost, 0, 1));
-    // }
-    // private int findMinCost(int[] cost, int sum, int i) {
-    //     if (i >= cost.length) return sum;
-    //     return Math.min(findMinCost(cost, sum + cost[i], i + 1), findMinCost(cost, sum + cost[i], i + 2));
+    //     if (cost.length <= 1) return 0;
+    //     int n1 = 0, n2 = 0;
+    //     for (int i = 0; i < cost.length; i++) {
+    //         int curMin = cost[i] + Math.min(n1, n2);
+    //         n2 = n1;
+    //         n1 = curMin;
+    //     }
+    //     return Math.min(n1, n2);
     // }
 }
 // @lc code=end

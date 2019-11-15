@@ -33,8 +33,31 @@
 
 // @lc code=start
 class Solution {
+    /* prefix sum */
     public int subarraySum(int[] nums, int k) {
-        
+        int res = 0;
+        int sum = 0;
+        Map<Integer, Integer> map = new HashMap<>(); // sum -> freq
+        map.put(0, 1);  // incase that nums[i] == k
+        for (int i : nums) {
+            sum += i;
+            if (map.containsKey(sum - k)) res += map.get(sum - k);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return res;
     }
+
+    /* brute force */
+    // public int subarraySum(int[] nums, int k) {
+    //     int res = 0;
+    //     for (int i = 0; i < nums.length; i++) {
+    //         int curSum = 0;
+    //         for (int j = i; j < nums.length; j++) {
+    //             curSum += nums[j];
+    //             if (curSum == k) res++;
+    //         }
+    //     }
+    //     return res;
+    // }
 }
 // @lc code=end
