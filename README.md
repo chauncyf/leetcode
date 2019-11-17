@@ -25,6 +25,7 @@ N Sum
 
 Binary Search
 - [33.search-in-rotated-sorted-array](https://github.com/chauncyf/leetcode/blob/master/Java/33.search-in-rotated-sorted-array.java)
+- [74.search-a-2-d-matrix](https://github.com/chauncyf/leetcode/blob/master/Java/74.search-a-2-d-matrix.java)
 
 Shift
 - [189.rotate-array](https://github.com/chauncyf/leetcode/blob/master/Java/189.rotate-array.java)
@@ -110,8 +111,8 @@ Next Right Pointers
 - [117.populating-next-right-pointers-in-each-node-ii](https://github.com/chauncyf/leetcode/blob/master/Java/117.populating-next-right-pointers-in-each-node-ii.java)
 
 Other
+- [96.unique-binary-search-trees](https://github.com/chauncyf/leetcode/blob/master/Java/96.unique-binary-search-trees.java)
 - [226.invert-binary-tree](https://github.com/chauncyf/leetcode/blob/master/Java/226.invert-binary-tree.java)
-
 
 ## Sort
 Merge Intervals
@@ -138,6 +139,8 @@ Quick Sort
 
 
 ## Backtrack
+[17.letter-combinations-of-a-phone-number](https://github.com/chauncyf/leetcode/blob/master/Java/17.letter-combinations-of-a-phone-number.java)
+
 [22.generate-parentheses](https://github.com/chauncyf/leetcode/blob/master/Java/22.generate-parentheses.java)
 
 [39.combination-sum](https://github.com/chauncyf/leetcode/blob/master/Java/39.combination-sum.java)  

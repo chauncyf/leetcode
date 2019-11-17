@@ -31,9 +31,46 @@
 
 // @lc code=start
 class Solution {
+    /* DP */
     public int trap(int[] height) {
+        // for each index, amount of rain it can trap = Min(max height of left, max height of right) - height of itself
+        // so we want to know, for each index, max height of left so far, and max height of right so far
+
+        int[] maxLeft = new int[height.length];
+        int[] maxRight = new int[height.length];
+        for (int i = 0; i < height.length; i++) {
+            if (i == 0) maxLeft[i] = height[i];
+            else maxLeft[i] = Math.max(height[i], maxLeft[i - 1]);
+        }
+        for (int i = height.length - 1; i >= 0; i--) {
+            if (i == height.length - 1) maxRight[i] = height[i];
+            else maxRight[i] = Math.max(height[i], maxRight[i + 1]);
+        }
         
+        int res = 0;
+        for (int i = 0; i < height.length; i++) {
+            res += Math.min(maxLeft[i], maxRight[i]) - height[i];
+        }
+        return res;
     }
+
+    /* Two Pointer */
+    // public int trap(int[] height) {
+    //     int res = 0;
+    //     int maxLeft = 0, maxRight = 0;
+    //     int le = 0, ri = height.length - 1;
+    //     while (le <= ri) {
+    //         if (maxLeft <= maxRight) {  // if upper bound constrained by left side
+    //             if (height[le] >= maxLeft) maxLeft = height[le];
+    //             else res += maxLeft - height[le];
+    //             le++;
+    //         } else {  // else if upper bound constrained by right side
+    //             if (height[ri] >= maxRight) maxRight = height[ri];
+    //             else res += maxRight - height[ri];
+    //             ri--;
+    //         }
+    //     }
+    //     return res;
+    // }
 }
 // @lc code=end
-
