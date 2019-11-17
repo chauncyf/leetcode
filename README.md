@@ -35,10 +35,11 @@ Matrix
 - [59.spiral-matrix-ii](https://github.com/chauncyf/leetcode/blob/master/Java/59.spiral-matrix-ii.java)
 - [73.set-matrix-zeroes](https://github.com/chauncyf/leetcode/blob/master/Java/73.set-matrix-zeroes.java)
 
-Two Pointer / N Pointer
+Intersection
 - [349.intersection-of-two-arrays](https://github.com/chauncyf/leetcode/blob/master/Java/349.intersection-of-two-arrays.java)  
 - [1213.intersection-of-three-sorted-arrays](https://github.com/chauncyf/leetcode/blob/master/Java/1213.intersection-of-three-sorted-arrays.java)  
 - [1198.find-smallest-common-element-in-all-rows](https://github.com/chauncyf/leetcode/blob/master/Java/1198.find-smallest-common-element-in-all-rows.java)
+- [1002.find-common-characters.java](https://github.com/chauncyf/leetcode/blob/master/Java/1002.find-common-characters.java)
 
 Kadane's algorithm
 - [53.maximum-subarray](https://github.com/chauncyf/leetcode/blob/master/Java/53.maximum-subarray.java)
@@ -85,6 +86,8 @@ Traversal
 Validate
 - [98.validate-binary-search-tree](https://github.com/chauncyf/leetcode/blob/master/Java/98.validate-binary-search-tree.java)
 - [331.verify-preorder-serialization-of-a-binary-tree](https://github.com/chauncyf/leetcode/blob/master/Java/331.verify-preorder-serialization-of-a-binary-tree.java)
+- [100.same-tree](https://github.com/chauncyf/leetcode/blob/master/Java/100.same-tree.java)
+- [572.subtree-of-another-tree](https://github.com/chauncyf/leetcode/blob/master/Java/572.subtree-of-another-tree.java)
 
 Depth / Width
 - [110.balanced-binary-tree](https://github.com/chauncyf/leetcode/blob/master/Java/110.balanced-binary-tree.java)
@@ -128,7 +131,6 @@ Heap Sort
 Bucket Sort
 - [347.top-k-frequent-elements](https://github.com/chauncyf/leetcode/blob/master/Java/347.top-k-frequent-elements.java)
 - [451.sort-characters-by-frequency](https://github.com/chauncyf/leetcode/blob/master/Java/451.sort-characters-by-frequency.java)
-- [1002.find-common-characters.java](https://github.com/chauncyf/leetcode/blob/master/Java/1002.find-common-characters.java)
 - [274.h-index](https://github.com/chauncyf/leetcode/blob/master/Java/274.h-index.java)
 
 Quick Sort
@@ -187,7 +189,7 @@ Quick Sort
 ## Stack
 [20.valid-parentheses](https://github.com/chauncyf/leetcode/blob/master/Java/20.valid-parentheses.java)
 
-[225.implement-stack-using-queues](https://github.com/chauncyf/leetcode/blob/master/Java/225.implement-stack-using-queues.java)
+[225.implement-stack-using-queues](https://github.com/chauncyf/leetcode/blob/master/Java/225.implement-stack-using-queues.java)  
 [232.implement-queue-using-stacks](https://github.com/chauncyf/leetcode/blob/master/Java/232.implement-queue-using-stacks.java)
 
 [946.validate-stack-sequences](https://github.com/chauncyf/leetcode/blob/master/Java/946.validate-stack-sequences.java)

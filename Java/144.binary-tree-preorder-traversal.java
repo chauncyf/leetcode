@@ -58,6 +58,20 @@ class Solution {
         
         return res;   
     }
+
+
+    // public List<Integer> preorderTraversal(TreeNode root) {
+    //     List<Integer> res = new ArrayList<>();
+    //     trav(root, res);
+    //     return res;
+    // }
+
+    // private void trav(TreeNode node, List<Integer> res) {
+    //     if (node != null) {
+    //         res.add(node.val);
+    //         trav(node.left, res);
+    //         trav(node.right, res);
+    //     }    
+    // }
 }
 // @lc code=end
-

@@ -67,5 +67,19 @@ class Solution {
         }
         return res;
     }
-}
 
+    
+    // public List<List<Integer>> levelOrder(TreeNode root) {
+    //     List<List<Integer>> res = new ArrayList<>();
+    //     helper(root, 0, res);
+    //     return res;
+    // }
+    
+    // private void helper(TreeNode node, int level, List<List<Integer>> levels) {
+    //     if (node == null) return;
+    //     if (level >= levels.size()) levels.add(new ArrayList<>());
+    //     levels.get(level).add(node.val);
+    //     helper(node.left, level + 1, levels);
+    //     helper(node.right, level + 1, levels);
+    // }
+}
