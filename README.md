@@ -112,7 +112,9 @@ Next Right Pointers
 
 Other
 - [96.unique-binary-search-trees](https://github.com/chauncyf/leetcode/blob/master/Java/96.unique-binary-search-trees.java)
+- [95.unique-binary-search-trees-ii](https://github.com/chauncyf/leetcode/blob/master/Java/95.unique-binary-search-trees-ii.java)
 - [226.invert-binary-tree](https://github.com/chauncyf/leetcode/blob/master/Java/226.invert-binary-tree.java)
+- [250.count-univalue-subtrees](https://github.com/chauncyf/leetcode/blob/master/Java/250.count-univalue-subtrees.java)
 
 ## Sort
 Merge Intervals
@@ -167,7 +169,7 @@ Quick Sort
 ## Dymanic Programming
 [42.trapping-rain-water](https://github.com/chauncyf/leetcode/blob/master/Java/42.trapping-rain-water.java)
 
-[70.climbing-stairs](https://github.com/chauncyf/leetcode/blob/master/Java/70.climbing-stairs.java)
+[70.climbing-stairs](https://github.com/chauncyf/leetcode/blob/master/Java/70.climbing-stairs.java)  
 [746.min-cost-climbing-stairs](https://github.com/chauncyf/leetcode/blob/master/Java/746.min-cost-climbing-stairs.java)
 
 [121.best-time-to-buy-and-sell-stock](https://github.com/chauncyf/leetcode/blob/master/Java/121.best-time-to-buy-and-sell-stock.java)  
