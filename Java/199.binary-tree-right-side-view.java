@@ -42,25 +42,26 @@
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        TreeNode cur = root;
+        if (root == null) return res;
+     
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(cur);
+        queue.add(root);
         while (!queue.isEmpty()) {
             int curLevel = queue.size();
             for (int i = 0; i < curLevel; i++) {
-                cur = queue.remove();
-                if (i == curLevel - 1) {
-                    res.add(cur.val);
-                }
+                TreeNode cur = queue.remove();
                 if (cur.left != null) {
                     queue.add(cur.left);
                 }
                 if (cur.right != null) {
                     queue.add(cur.right);
                 }
+                if (i == curLevel - 1) {
+                    res.add(cur.val);
+                }
             }
         }
+
         return res;
     }
 }
-

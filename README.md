@@ -12,8 +12,9 @@ Palindrome
 - [516.longest-palindromic-subsequence](https://github.com/chauncyf/leetcode/blob/master/Java/516.longest-palindromic-subsequence.java)  
 - [647.palindromic-substrings](https://github.com/chauncyf/leetcode/blob/master/Java/647.palindromic-substrings.java)
 
-Match
+Search
 - [44.wildcard-matching](https://github.com/chauncyf/leetcode/blob/master/Java/44.wildcard-matching.java)
+- [459.repeated-substring-pattern](https://github.com/chauncyf/leetcode/blob/master/Java/459.repeated-substring-pattern.java)
 
 Other
 - [8.string-to-integer-atoi](https://github.com/chauncyf/leetcode/blob/master/Java/8.string-to-integer-atoi.java)
@@ -25,7 +26,6 @@ N Sum
 
 Binary Search
 - [33.search-in-rotated-sorted-array](https://github.com/chauncyf/leetcode/blob/master/Java/33.search-in-rotated-sorted-array.java)
-- [74.search-a-2-d-matrix](https://github.com/chauncyf/leetcode/blob/master/Java/74.search-a-2-d-matrix.java)
 
 Shift
 - [189.rotate-array](https://github.com/chauncyf/leetcode/blob/master/Java/189.rotate-array.java)
@@ -35,6 +35,8 @@ Matrix
 - [54.spiral-matrix](https://github.com/chauncyf/leetcode/blob/master/Java/54.spiral-matrix.java)
 - [59.spiral-matrix-ii](https://github.com/chauncyf/leetcode/blob/master/Java/59.spiral-matrix-ii.java)
 - [73.set-matrix-zeroes](https://github.com/chauncyf/leetcode/blob/master/Java/73.set-matrix-zeroes.java)
+- [74.search-a-2-d-matrix](https://github.com/chauncyf/leetcode/blob/master/Java/74.search-a-2-d-matrix.java)
+- [240.search-a-2-d-matrix-ii](https://github.com/chauncyf/leetcode/blob/master/Java/240.search-a-2-d-matrix-ii.java)
 
 Intersection
 - [349.intersection-of-two-arrays](https://github.com/chauncyf/leetcode/blob/master/Java/349.intersection-of-two-arrays.java)  
@@ -46,6 +48,7 @@ Kadane's algorithm
 - [53.maximum-subarray](https://github.com/chauncyf/leetcode/blob/master/Java/53.maximum-subarray.java)
 
 Prefix Sum
+- [238.product-of-array-except-self](https://github.com/chauncyf/leetcode/blob/master/Java/238.product-of-array-except-self.java)
 - [523.continuous-subarray-sum](https://github.com/chauncyf/leetcode/blob/master/Java/523.continuous-subarray-sum.java)  
 - [974.subarray-sums-divisible-by-k](https://github.com/chauncyf/leetcode/blob/master/Java/974.subarray-sums-divisible-by-k.java)
 
@@ -160,11 +163,18 @@ Quick Sort
 [51.n-queens](https://github.com/chauncyf/leetcode/blob/master/Java/51.n-queens.java)
 
 
-## DFS / BFS
-[127.word-ladder](https://github.com/chauncyf/leetcode/blob/master/Java/127.word-ladder.java)
+## BFS / DFS
+BFS
+- [127.word-ladder](https://github.com/chauncyf/leetcode/blob/master/Java/127.word-ladder.java)  
+- [126.word-ladder-ii](https://github.com/chauncyf/leetcode/blob/master/Java/126.word-ladder-ii.java)
 
-[200.number-of-islands](https://github.com/chauncyf/leetcode/blob/master/Java/200.number-of-islands.java)
+DFS
+- [200.number-of-islands](https://github.com/chauncyf/leetcode/blob/master/Java/200.number-of-islands.java)
 
+Topological Sort
+- [207.course-schedule](https://github.com/chauncyf/leetcode/blob/master/Java/207.course-schedule.java)
+- [210.course-schedule-ii](https://github.com/chauncyf/leetcode/blob/master/Java/210.course-schedule-ii.java)
+ 
 
 ## Dymanic Programming
 [42.trapping-rain-water](https://github.com/chauncyf/leetcode/blob/master/Java/42.trapping-rain-water.java)
@@ -206,3 +216,5 @@ Quick Sort
 [9.palindrome-number](https://github.com/chauncyf/leetcode/blob/master/Java/9.palindrome-number.java)
 
 [50.pow-x-n](https://github.com/chauncyf/leetcode/blob/master/Java/50.pow-x-n.java)
+
+[204.count-primes](https://github.com/chauncyf/leetcode/blob/master/Java/204.count-primes.java)

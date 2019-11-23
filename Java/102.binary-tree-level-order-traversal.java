@@ -51,20 +51,21 @@ class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) return res;
-        TreeNode cur = root;
+        
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(cur);
+        q.add(root);
         while (!q.isEmpty()) {
             int levelSize = q.size();
             List<Integer> curLevel = new ArrayList<>();
             for (int i = 0; i < levelSize; i++) {
-                cur = q.remove();
+                TreeNode cur = q.remove();
                 curLevel.add(cur.val);
                 if (cur.left != null) q.add(cur.left);
                 if (cur.right != null) q.add(cur.right);
             }
             res.add(curLevel);
         }
+        
         return res;
     }
 
