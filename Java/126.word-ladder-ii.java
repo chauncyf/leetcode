@@ -134,9 +134,12 @@ class Solution {
     //             if (s.equals(endWord)) {
     //                 for (List<String> ladder : layer.get(s)) res.add(ladder);
     //             } else {
+    //                char[] chars = s.toCharArray();  // toCharArray and avoid string concatenation
     //                 for (int i = 0; i < s.length(); i++) {  // try to replace each char
-    //                     for (int j = 0; j < 26; j++) {
-    //                         String word = s.substring(0, i) + String.valueOf((char)('a' + j)) + s.substring(i + 1);
+    //                     char org = chars[i];
+    //                     for (char c = 'a'; c <= 'z'; c++) {
+    //                         chars[i] = c;
+    //                         String word = new String(chars);
     //                         if (wordSet.contains(word)) {    
     //                             List<List<String>> ladders = nextLayer.getOrDefault(word, new ArrayList<>());
     //                             for (List<String> ladder : layer.get(s)) {
@@ -147,6 +150,7 @@ class Solution {
     //                             nextLayer.put(word, ladders);
     //                         }
     //                     }
+    //                     chars[i] = org;
     //                 }
     //             }
     //         }

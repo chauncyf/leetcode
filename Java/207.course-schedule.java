@@ -53,32 +53,64 @@
 
 // @lc code=start
 class Solution {
+    /* Topological Sort Based on DFS Circle Detection */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        if (numCourses <= 0) return true;
-        Queue<Integer> queue = new LinkedList<>();
-        int[] todo = new int[numCourses];
-        for (int i = 0; i < prerequisites.length; i++) {
-            todo[prerequisites[i][0]]++;
+        Map<Integer, Set<Integer>> adjMap = new HashMap<>();  // course -> preqs
+        Map<Integer, Integer> courses = new HashMap<>();  // 0: not visited, 1: visiting, 2: visited
+        for (int[] pre : prerequisites) {
+            // assume all pres are pair of 2
+            Set<Integer> set = adjMap.getOrDefault(pre[0], new HashSet<>());  
+            set.add(pre[1]);
+            adjMap.put(pre[0], set);
+            courses.put(pre[0], 0);
+            courses.put(pre[1], 0);
         }
-        for (int i = 0; i < numCourses; i++) {
-            if (todo[i] == 0) {
-                queue.add(i);
-            }
-        }
-        while (!queue.isEmpty()) {
-            int pre = queue.remove();
-            for (int i = 0; i < prerequisites.length; i++) {
-                if (pre == prerequisites[i][1]) {
-                    if (--todo[prerequisites[i][0]] == 0) {
-                        queue.add(prerequisites[i][0]);
-                    }
-                }
-            }
-        }
-        for (int i = 0; i < numCourses; i++) {
-            if (todo[i] != 0) return false;
+        for (Integer course : courses.keySet()) {
+            if (hasCircle(adjMap, courses, course)) return false;
         }
         return true;
     }
+    
+    private boolean hasCircle(Map<Integer, Set<Integer>> adjMap, Map<Integer, Integer> vertices, Integer vertice) {
+        if (vertices.get(vertice) == 2) return false;
+        if (vertices.get(vertice) == 1) return true;
+        vertices.put(vertice, 1);  // mark as visiting
+        if (adjMap.containsKey(vertice)) {  // if this vertice has forward edges (has preqs)
+            for (Integer preq : adjMap.get(vertice)) {
+               if (hasCircle(adjMap, vertices, preq)) return true;
+            }
+        }
+        vertices.put(vertice, 2);  // mark as visited
+        return false;
+    }
+
+
+    // public boolean canFinish(int numCourses, int[][] prerequisites) {
+    //     if (numCourses <= 0) return true;
+    //     Queue<Integer> queue = new LinkedList<>();
+    //     int[] todo = new int[numCourses];
+    //     for (int i = 0; i < prerequisites.length; i++) {
+    //         todo[prerequisites[i][0]]++;
+    //     }
+    //     for (int i = 0; i < numCourses; i++) {
+    //         if (todo[i] == 0) {
+    //             queue.add(i);
+    //         }
+    //     }
+    //     while (!queue.isEmpty()) {
+    //         int pre = queue.remove();
+    //         for (int i = 0; i < prerequisites.length; i++) {
+    //             if (pre == prerequisites[i][1]) {
+    //                 if (--todo[prerequisites[i][0]] == 0) {
+    //                     queue.add(prerequisites[i][0]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     for (int i = 0; i < numCourses; i++) {
+    //         if (todo[i] != 0) return false;
+    //     }
+    //     return true;
+    // }
 }
 // @lc code=end

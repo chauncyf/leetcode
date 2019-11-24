@@ -58,8 +58,46 @@
 
 // @lc code=start
 class Solution {
+    int[] order;
+    int idx;
+    
     public int[] findOrder(int numCourses, int[][] prerequisites) {
+        order = new int[numCourses];
+        idx = 0;
         
+        Map<Integer, Set<Integer>> adjMap = new HashMap<>();  // course -> preqs
+        Map<Integer, Integer> courses = new HashMap<>();  // 0: not visited, 1: visiting, 2: visited
+        for (int[] pre : prerequisites) {
+            // assume all pres are pair of 2
+            Set<Integer> set = adjMap.getOrDefault(pre[0], new HashSet<>());  
+            set.add(pre[1]);
+            adjMap.put(pre[0], set);
+            courses.put(pre[0], 0);
+            courses.put(pre[1], 0);
+        }
+        for (Integer course : courses.keySet()) {
+            if (hasCircle(adjMap, courses, course)) return new int[]{};
+        }
+        
+        for (int i = 0; idx < numCourses && i < numCourses; i++) {  // handle courses that dont have preq
+            if (!courses.containsKey(i)) order[idx++] = i;
+        }
+        
+        return order;
+    }
+    
+    private boolean hasCircle(Map<Integer, Set<Integer>> adjMap, Map<Integer, Integer> vertices, Integer vertice) {
+        if (vertices.get(vertice) == 2) return false;
+        if (vertices.get(vertice) == 1) return true;
+        vertices.put(vertice, 1);  // mark as visiting
+        if (adjMap.containsKey(vertice)) {  // if this vertice has forward edges (has preqs)
+            for (Integer preq : adjMap.get(vertice)) {
+               if (hasCircle(adjMap, vertices, preq)) return true;
+            }
+        }
+        vertices.put(vertice, 2);  // mark as visited
+        order[idx++] = vertice;  // add course to order
+        return false;
     }
 }
 // @lc code=end
