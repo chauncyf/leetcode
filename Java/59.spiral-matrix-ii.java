@@ -34,29 +34,26 @@
 class Solution {
     public int[][] generateMatrix(int n) {
         int[][] res = new int[n][n];
-        
-        int left = 0, right = n - 1;
-        int up = 0, down = n - 1;
+        int up = 0, down = n - 1, left = 0, right = n - 1;
         int i = 1;
         while (i <= n * n) {
-            for (int c = left; c <= right && i <= n * n; c++) {
+            for (int c = left; c <= right; c++) {
                 res[up][c] = i++;
             }
-            for (int r = up + 1; r <= down - 1 && i <= n * n; r++) {
+            up++;
+            for (int r = up; r <= down; r++) {
                 res[r][right] = i++;
             }
-            for (int c = right; c >= left && i <= n * n; c--) {
+            right--;
+            for (int c = right; c >= left; c--) {
                 res[down][c] = i++;
             }
-            for (int r = down - 1; r >= up + 1 && i <= n * n; r--) {
+            down--;
+            for (int r = down; r >= up; r--) {
                 res[r][left] = i++;
             }
             left++;
-            right--;
-            up++;
-            down--;
         }
-        
         return res;
     }
 }

@@ -44,35 +44,31 @@ class Solution {
         return res;
     }
     
-    private void find(int[] nums, List<Integer> set, int idx) {
-        if (idx == nums.length) {
-            res.add(new ArrayList<>(set));
-            return;
+    // private void find(int[] nums, List<Integer> set, int idx) {
+    //     if (idx == nums.length) {
+    //         res.add(new ArrayList<>(set));
+    //         return;
+    //     }
+    //     find(nums, set, idx + 1);
+    //     set.add(nums[idx]);
+    //     find(nums, set, idx + 1);
+    //     set.remove(set.size() - 1);
+    // }
+
+    private void helper(int[] nums, int idx, List<Integer> cur, List<List<Integer>> res) {
+        if (idx <= nums.length) {
+            res.add(new ArrayList<>(cur));
         }
-        find(nums, set, idx + 1);
-        set.add(nums[idx]);
-        find(nums, set, idx + 1);
-        set.remove(set.size() - 1);
+        
+        for (int i = idx; i < nums.length; i++) {
+            // if (i > idx && nums[i] == nums[i - 1]) continue;  // rm dup
+            cur.add(nums[i]);
+            helper(nums, i + 1, cur, res);
+            cur.remove(cur.size() - 1);
+        }
     }
 
     
-    // public List<List<Integer>> subsets(int[] nums) {
-    //     List<List<Integer>> res = new ArrayList<>();
-    //     helper(nums, res, new ArrayList<>(), 0);
-    //     return res;
-    // }
-    
-    // private void helper(int[] nums, List<List<Integer>> res, List<Integer> subs, int i) {
-    //     if (i == nums.length) {
-    //         res.add(subs);
-    //         return;
-    //     }
-    //     helper(nums, res, new ArrayList<>(subs), i + 1);
-    //     subs.add(nums[i]);
-    //     helper(nums, res, new ArrayList<>(subs), i + 1);
-    // }
-
-
     // Iterative
     // public List<List<Integer>> subsets(int[] nums) {
     //     List<List<Integer>> res = new ArrayList<>();

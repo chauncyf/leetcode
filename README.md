@@ -18,6 +18,7 @@ Search
 
 Other
 - [8.string-to-integer-atoi](https://github.com/chauncyf/leetcode/blob/master/Java/8.string-to-integer-atoi.java)
+- [224.basic-calculator](https://github.com/chauncyf/leetcode/blob/master/Java/224.basic-calculator.java)
 
 ## Array
 N Sum
@@ -185,6 +186,8 @@ Topological Sort
 [121.best-time-to-buy-and-sell-stock](https://github.com/chauncyf/leetcode/blob/master/Java/121.best-time-to-buy-and-sell-stock.java)  
 [122.best-time-to-buy-and-sell-stock-ii](https://github.com/chauncyf/leetcode/blob/master/Java/122.best-time-to-buy-and-sell-stock-ii.java)
 
+[300.longest-increasing-subsequence](https://github.com/chauncyf/leetcode/blob/master/Java/300.longest-increasing-subsequence.java)
+
 [887.super-egg-drop](https://github.com/chauncyf/leetcode/blob/master/Java/887.super-egg-drop.java)
 
 
@@ -218,3 +221,6 @@ Topological Sort
 [50.pow-x-n](https://github.com/chauncyf/leetcode/blob/master/Java/50.pow-x-n.java)
 
 [204.count-primes](https://github.com/chauncyf/leetcode/blob/master/Java/204.count-primes.java)
+
+## Bit Manipulation
+[338.counting-bits](https://github.com/chauncyf/leetcode/blob/master/Java/338.counting-bits.java)
