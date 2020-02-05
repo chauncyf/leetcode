@@ -18,6 +18,9 @@ Search
 
 Other
 - [8.string-to-integer-atoi](https://github.com/chauncyf/leetcode/blob/master/Java/8.string-to-integer-atoi.java)
+- [13.roman-to-integer](https://github.com/chauncyf/leetcode/blob/master/Java/13.roman-to-integer.java)
+- [273.integer-to-english-words](https://github.com/chauncyf/leetcode/blob/master/Java/273.integer-to-english-words.java)
+
 - [224.basic-calculator](https://github.com/chauncyf/leetcode/blob/master/Java/224.basic-calculator.java)
 
 ## Array
@@ -78,6 +81,7 @@ Two Pointer
 - [160.intersection-of-two-linked-lists](https://github.com/chauncyf/leetcode/blob/master/Java/160.intersection-of-two-linked-lists.java)
 
 Other
+- [19.remove-nth-node-from-end-of-list](https://github.com/chauncyf/leetcode/blob/master/Java/19.remove-nth-node-from-end-of-list.java)
 - [138.copy-list-with-random-pointer](https://github.com/chauncyf/leetcode/blob/master/Java/138.copy-list-with-random-pointer.java)
 
 
