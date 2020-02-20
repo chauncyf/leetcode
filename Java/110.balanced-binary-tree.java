@@ -66,19 +66,33 @@
  * }
  */
 class Solution {
-    private boolean is = true;
-    
     public boolean isBalanced(TreeNode root) {
-        height(root);
-        return is;
+        return helper(root) != -1;
     }
     
-    private int height(TreeNode node) {
-        if (node == null) return -1;
-        int l = height(node.left);
-        int r = height(node.right);
-        if (Math.abs(l - r) > 1) is = false;
-        return Math.max(l, r) + 1;
+    private int helper(TreeNode node) {
+        if (node == null) return 0;
+        int left = helper(node.left);
+        int right = helper(node.right);
+        if (left == -1 || right == -1 || Math.abs(left - right) > 1) {
+            return -1;
+        }        
+        return Math.max(left, right) + 1;
     }
+    
+    // private boolean is = true;
+    
+    // public boolean isBalanced(TreeNode root) {
+    //     height(root);
+    //     return is;
+    // }
+    
+    // private int height(TreeNode node) {
+    //     if (node == null) return -1;
+    //     int l = height(node.left);
+    //     int r = height(node.right);
+    //     if (Math.abs(l - r) > 1) is = false;
+    //     return Math.max(l, r) + 1;
+    // }
 }
 // @lc code=end

@@ -46,16 +46,35 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        List<ListNode> list = new ArrayList<>();
-        ListNode cur = head;
-        while (cur != null) {
-            list.add(cur);
-            cur = cur.next;
+        ListNode slow = head, fast = head;
+        
+        // keep n space between slow and fast
+        for (int i = 0; i < n; i++) {
+            fast = fast.next;
         }
-        if (n == list.size()) return head.next;
-        cur = list.get(list.size() - n - 1);
-        cur.next = cur.next.next;
+        if (fast == null) return head.next;
+        fast = fast.next;
+        
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        slow.next = slow.next.next;
         return head;
     }
+
+    // public ListNode removeNthFromEnd(ListNode head, int n) {
+    //     List<ListNode> list = new ArrayList<>();
+    //     ListNode cur = head;
+    //     while (cur != null) {
+    //         list.add(cur);
+    //         cur = cur.next;
+    //     }
+    //     if (n == list.size()) return head.next;
+    //     cur = list.get(list.size() - n - 1);
+    //     cur.next = cur.next.next;
+    //     return head;
+    // }
 }
 // @lc code=end
