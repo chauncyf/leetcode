@@ -123,6 +123,8 @@ Other
 - [95.unique-binary-search-trees-ii](https://github.com/chauncyf/leetcode/blob/master/Java/95.unique-binary-search-trees-ii.java)
 - [226.invert-binary-tree](https://github.com/chauncyf/leetcode/blob/master/Java/226.invert-binary-tree.java)
 - [250.count-univalue-subtrees](https://github.com/chauncyf/leetcode/blob/master/Java/250.count-univalue-subtrees.java)
+- [297.serialize-and-deserialize-binary-tree](https://github.com/chauncyf/leetcode/blob/master/Java/297.serialize-and-deserialize-binary-tree.java)
+- [508.most-frequent-subtree-sum](https://github.com/chauncyf/leetcode/blob/master/Java/508.most-frequent-subtree-sum.java)
 
 ## Sort
 Merge Intervals
@@ -181,7 +183,7 @@ Topological Sort
 - [210.course-schedule-ii](https://github.com/chauncyf/leetcode/blob/master/Java/210.course-schedule-ii.java)
  
 
-## Dymanic Programming
+## Dynamic Programming
 [42.trapping-rain-water](https://github.com/chauncyf/leetcode/blob/master/Java/42.trapping-rain-water.java)
 
 [70.climbing-stairs](https://github.com/chauncyf/leetcode/blob/master/Java/70.climbing-stairs.java)  

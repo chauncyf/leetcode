@@ -37,22 +37,24 @@ class Solution {
     /* runtime / space : O(4^n / sqrt(n)) */
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<>();
-        helper(res, n, 0, new StringBuilder());
+        helper(n, 0, new StringBuilder(), res);
         return res;
     }
     
-    private void helper(List<String> list, int r, int l, StringBuilder str) {
-        if (r == 0 && l == 0) {
-            list.add(str.toString());
+    private void helper(int l, int r, StringBuilder cur, List<String> res) {
+        if (l == 0 && r == 0) {
+            res.add(cur.toString());
             return;
         }
-        if (r > 0) {
-            helper(list, r - 1, l + 1, str.append("("));
-            str.deleteCharAt(str.length() - 1);
-        }
         if (l > 0) {
-            helper(list, r, l - 1, str.append(")"));
-            str.deleteCharAt(str.length() - 1);
+            cur.append("(");
+            helper(l - 1, r + 1, cur, res);
+            cur.deleteCharAt(cur.length() - 1);
+        }
+        if (r > 0) {
+            cur.append(")");
+            helper(l, r - 1, cur, res);
+            cur.deleteCharAt(cur.length() - 1);
         }
     }
 }
