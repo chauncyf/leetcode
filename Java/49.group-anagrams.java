@@ -16,8 +16,6 @@
  * Given an array of strings, group anagrams together.
  * 
  * Example:
- * 
- * 
  * Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
  * Output:
  * [
@@ -27,34 +25,21 @@
  * ]
  * 
  * Note:
- * 
- * 
  * All inputs will be in lowercase.
  * The order of your output does not matter.
- * 
- * 
  */
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res = new ArrayList<>();
         Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
-            char[] charArray = s.toCharArray();
-            Arrays.sort(charArray);
-            String sorted = Arrays.toString(charArray);
-            List<String> ana;
-            if (map.containsKey(sorted)) {
-                ana = map.get(sorted);
-            } else {
-                ana = new ArrayList<>();
-            }
-            ana.add(s);
-            map.put(sorted, ana);
+            char[] cur = s.toCharArray();
+            Arrays.sort(cur);
+            String key = Arrays.toString(cur);
+            List<String> list = map.getOrDefault(key, new ArrayList<>());
+            list.add(s);
+            map.put(key, list);
         }
-        for (String s: map.keySet()) {
-            res.add(map.get(s));
-        }
-        return res;
+        return new ArrayList(map.values());
     }
 }
-
