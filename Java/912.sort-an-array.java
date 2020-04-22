@@ -15,77 +15,52 @@
  *
  * Given an array of integers nums, sort the array in ascending order.
  * 
- * 
- * 
- * 
- * 
- * 
  * Example 1:
- * 
- * 
  * Input: [5,2,3,1]
  * Output: [1,2,3,5]
  * 
- * 
  * Example 2:
- * 
- * 
  * Input: [5,1,1,2,0,0]
  * Output: [0,0,1,1,2,5]
  * 
- * 
- * 
- * 
  * Note:
- * 
- * 
  * 1 <= A.length <= 10000
  * -50000 <= A[i] <= 50000
- * 
- * 
  */
 
 // @lc code=start
 class Solution {
-    // public int[] sortArray(int[] nums) {
-    //     quickSort(nums, 0, nums.length - 1);
-    //     return nums;
-    // }
-
-    public List<Integer> sortArray(int[] nums) {
+    public int[] sortArray(int[] nums) {
         quickSort(nums, 0, nums.length - 1);
-        List<Integer> res = new ArrayList<>();
-        for (int i : nums) res.add(i);
-        return res;
+        return nums;
     }
     
-    public void quickSort(int[] arr, int lo, int hi) {
+    public void quickSort(int[] nums, int lo, int hi) {
         if (lo < hi) {
-            int x = partition(arr, lo, hi);
-            quickSort(arr, lo, x - 1);
-            quickSort(arr, x + 1, hi);
+            int pivotIdx = partition(nums, lo, hi);
+            quickSort(nums, lo, pivotIdx - 1);
+            quickSort(nums, pivotIdx + 1, hi);
         }
     }
     
-    private int partition(int[] arr, int lo, int hi) {
-        int pivot = arr[hi];
-        int i = lo;
+    private int partition(int[] nums, int lo, int hi) {
+        int pivot = nums[hi];
+        int idx = lo;  // idx that element < pivot
         
-        for (int j = lo; j < hi; j++) {
-            if (arr[j] <= pivot) {
-                swap(arr, i, j);
-                i++;
+        for (int i = lo; i < hi; i++) {
+            if (nums[i] <= pivot) {
+                swap(nums, i, idx++);
             }
         }
-        swap(arr, i, hi);
+        swap(nums, hi, idx);
         
-        return i;
+        return idx;
     }
     
-    private void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+    private void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
 }
 // @lc code=end

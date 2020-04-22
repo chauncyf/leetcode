@@ -18,18 +18,14 @@
  * nums[i].
  * 
  * Example:
- * 
- * 
  * Input:  [1,2,3,4]
  * Output: [24,12,8,6]
- * 
  * 
  * Note: Please solve it without division and in O(n).
  * 
  * Follow up:
  * Could you solve it with constant space complexity? (The output array does
  * not count as extra space for the purpose of space complexity analysis.)
- * 
  */
 
 // @lc code=start
@@ -49,6 +45,8 @@ class Solution {
     
     /* Prefix Product */
     public int[] productExceptSelf(int[] nums) {
+        if (nums.length <= 1) return nums;
+
         // prod for all element at left side
         int[] prodLeft = new int[nums.length];
         prodLeft[0] = 1;
@@ -64,7 +62,7 @@ class Solution {
         }
         
         int[] res = new int[nums.length];
-        for (int i = 0 ;i < nums.length; i++) {
+        for (int i = 0 ; i < nums.length; i++) {
             res[i] = prodLeft[i] * prodRight[i];
         }
         
@@ -89,6 +87,26 @@ class Solution {
     //     }
         
     //     return res;
+    // }
+
+    /* Bonus, real O(1) space w/ division */
+    // public int[] productExceptSelf(int[] nums) {
+    //     int prod = 1;
+    //     int zero = 0;
+    //     for (int i : nums) {
+    //         if (i != 0) prod *= i;
+    //         else zero++;
+    //     }
+    //     for (int i = 0; i < nums.length; i++) {
+    //         if (zero == 0) {
+    //             nums[i] = prod / nums[i];
+    //         } else if (zero == 1 && nums[i] == 0) {  // this is that zero
+    //             nums[i] = prod;
+    //         } else {  // if more than one zero, then prod except itself will always be 0
+    //             nums[i] = 0;
+    //         }
+    //     }
+    //     return nums;
     // }
 }
 // @lc code=end
