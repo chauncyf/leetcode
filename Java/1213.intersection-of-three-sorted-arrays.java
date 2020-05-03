@@ -44,8 +44,7 @@ class Solution {
                         idx1++;
                         idx2++;
                     }
-                }
-                else if (arr1[idx1] < arr2[idx2]) {
+                } else if (arr1[idx1] < arr2[idx2]) {
                     idx1++;
                     if (arr3[idx3] < arr2[idx2]) idx3++;
                 } else {

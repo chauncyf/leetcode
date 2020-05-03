@@ -22,7 +22,6 @@
  * 
  * Example 1:
  * 
- * 
  * Input: [1,2,3]
  * 
  * ⁠      1
@@ -34,7 +33,6 @@
  * 
  * Example 2:
  * 
- * 
  * Input: [-10,9,20,null,null,15,7]
  * 
  * -10
@@ -44,8 +42,6 @@
  * 15   7
  * 
  * Output: 42
- * 
- * 
  */
 
 // @lc code=start
